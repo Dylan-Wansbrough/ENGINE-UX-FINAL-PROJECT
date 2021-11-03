@@ -16,8 +16,11 @@ public class playerController : MonoBehaviour
     public float targetradius;
     public float timeBetweenAttacks;
     float timeTillNextAttack;
-    public float BasicAttackDam;
 
+
+    //player stats
+    public float health;
+    public float BasicAttackDam;
 
     void Start()
     {
@@ -34,6 +37,11 @@ public class playerController : MonoBehaviour
             AutoAttacking();
         }
         
+
+        if(health <= 0)
+        {
+            Debug.Log("Dead");
+        }
     }
 
     void playerMovement()
@@ -47,7 +55,6 @@ public class playerController : MonoBehaviour
                 agent.destination = hit.point;
                 target = null;
                 Instantiate(clickLocation, hit.point, Quaternion.identity);
-                agent.isStopped = false;
             }
         }
         else if (Input.GetMouseButtonDown(0))
@@ -63,7 +70,7 @@ public class playerController : MonoBehaviour
                     {
                         target = hit.transform.gameObject;
                         agent.destination = hit.point;
-                        agent.isStopped = false;
+                        
                     }
                     else
                     {
@@ -73,6 +80,7 @@ public class playerController : MonoBehaviour
                         newRotation.x = 0f;
                         newRotation.z = 0f;
                         transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, 10);
+                        agent.isStopped = false;
                     }
                     Instantiate(clickAttack, hit.point, Quaternion.identity);
                 }
@@ -101,6 +109,11 @@ public class playerController : MonoBehaviour
             if(timeTillNextAttack <= 0)
             {
                 timeTillNextAttack = timeBetweenAttacks;
+                target.GetComponent<enemyInheritance>().health -= BasicAttackDam;
+                if(target == null)
+                {
+                    agent.destination = transform.position;
+                }
                 Debug.Log("Attacking for " + BasicAttackDam + "damage.");
             }
         }

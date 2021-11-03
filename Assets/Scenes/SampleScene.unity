@@ -926,6 +926,9 @@ MonoBehaviour:
   timeBetweenAttacks: 0.5
   health: 100
   BasicAttackDam: 25
+  traps:
+  - {fileID: 1310443469355320102, guid: 9adbafa147fdbad4b8f5be1f4b346c08, type: 3}
+  buildMode: 0
 --- !u!54 &1034199278
 Rigidbody:
   m_ObjectHideFlags: 0

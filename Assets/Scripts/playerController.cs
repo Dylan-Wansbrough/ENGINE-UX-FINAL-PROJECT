@@ -22,6 +22,10 @@ public class playerController : MonoBehaviour
     public float health;
     public float BasicAttackDam;
 
+    //traps
+    public GameObject[] traps;
+    public bool buildMode;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -42,6 +46,9 @@ public class playerController : MonoBehaviour
         {
             Debug.Log("Dead");
         }
+
+
+        TrapMode();
     }
 
     void playerMovement()
@@ -53,6 +60,7 @@ public class playerController : MonoBehaviour
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
                 agent.destination = hit.point;
+                buildMode = false;
                 target = null;
                 Instantiate(clickLocation, hit.point, Quaternion.identity);
             }
@@ -82,6 +90,7 @@ public class playerController : MonoBehaviour
                         transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, 10);
                         agent.isStopped = false;
                     }
+                    buildMode = false;
                     Instantiate(clickAttack, hit.point, Quaternion.identity);
                 }
 
@@ -118,5 +127,31 @@ public class playerController : MonoBehaviour
             }
         }
         timeTillNextAttack -= Time.deltaTime;
+    }
+
+    void TrapMode()
+    {
+        //turning on build mode
+        if (Input.GetKeyDown("1"))
+        {
+            buildMode = true;
+        }
+
+        if (buildMode)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                RaycastHit hit;
+
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+                {
+                    if (hit.transform.gameObject.tag != "Enemy")
+                    {
+                        Instantiate(traps[0], hit.point, Quaternion.identity);
+                    }
+
+                }
+            }
+        }
     }
 }

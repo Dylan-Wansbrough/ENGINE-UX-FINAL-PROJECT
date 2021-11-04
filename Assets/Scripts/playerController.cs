@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class playerController : MonoBehaviour
 {
-    // Start is called before the first frame update
     NavMeshAgent agent;
     public GameObject clickLocation;
     public GameObject clickAttack;
@@ -26,6 +25,11 @@ public class playerController : MonoBehaviour
     public GameObject[] traps;
     public bool buildMode;
 
+
+    //player movement and sprites
+    public string direction;
+
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -33,7 +37,7 @@ public class playerController : MonoBehaviour
 
     void Update()
     {
-
+        playerDirection();
         playerMovement();
 
         if(target != null)
@@ -49,6 +53,7 @@ public class playerController : MonoBehaviour
 
 
         TrapMode();
+
     }
 
     void playerMovement()
@@ -83,12 +88,6 @@ public class playerController : MonoBehaviour
                     else
                     {
                         target = hit.transform.gameObject;
-                        agent.isStopped = true;
-                        Quaternion newRotation = Quaternion.LookRotation(hit.point - transform.position);
-                        newRotation.x = 0f;
-                        newRotation.z = 0f;
-                        transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, 10);
-                        agent.isStopped = false;
                     }
                     buildMode = false;
                     Instantiate(clickAttack, hit.point, Quaternion.identity);
@@ -153,5 +152,12 @@ public class playerController : MonoBehaviour
                 }
             }
         }
+    }
+
+    void playerDirection()
+    {
+
+        transform.LookAt(followCamera.transform);
+        
     }
 }

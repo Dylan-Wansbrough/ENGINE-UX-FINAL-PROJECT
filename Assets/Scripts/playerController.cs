@@ -33,6 +33,7 @@ public class playerController : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        transform.LookAt(followCamera.transform);
     }
 
     void Update()
@@ -156,8 +157,6 @@ public class playerController : MonoBehaviour
 
     void playerDirection()
     {
-
-        transform.LookAt(followCamera.transform);
         
     }
 }

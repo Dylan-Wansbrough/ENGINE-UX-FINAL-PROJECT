@@ -28,10 +28,18 @@ public class playerController : MonoBehaviour
 
     //player movement and sprites
     public string direction;
+    public GameObject spriteObject;
+    SpriteRenderer spriRen;
+    public Animator playerAnims;
+
+
+    public LayerMask mask1;
 
 
     void Start()
     {
+        spriRen = spriteObject.GetComponent<SpriteRenderer>();
+        spriRen.size += new Vector2(1f, 0.01f);
         agent = GetComponent<NavMeshAgent>();
         transform.LookAt(followCamera.transform);
     }
@@ -74,9 +82,9 @@ public class playerController : MonoBehaviour
         else if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
-            Debug.Log("attempting to click");
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, mask1))
             {
+                Debug.Log(hit.collider.gameObject.tag);
                 if (hit.transform.gameObject.tag == "Enemy")
                 {
                     float dist = Vector3.Distance(hit.transform.position, transform.position);
@@ -94,10 +102,7 @@ public class playerController : MonoBehaviour
                     buildMode = false;
                     Instantiate(clickAttack, hit.point, Quaternion.identity);
                 }
-                else
-                {
-                    Debug.Log("miss");
-                }
+                
 
             }
         }
@@ -162,18 +167,30 @@ public class playerController : MonoBehaviour
 
     void playerDirection()
     {
-        Vector3 dir = agent.destination - transform.position;
+        Vector3 dir = transform.position - agent.destination;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-        if(angle > -155f && angle < -166f)
+        
+
+        if (angle > 0f && angle < 30f)
         {
-            direction = "Up";
+            direction = "up";
+        }
+        else if (angle > 30f && angle <= 160f)
+        {
+            float checkX = transform.position.z - agent.destination.z;
+            if (checkX >= 0)
+            {
+                direction = "left";
+            }
+            else
+            {
+                direction = "right";
+            }
         }
         else
         {
-            direction = "other";
+            direction = "down";
         }
-
-        Debug.Log(direction);
     }
 }

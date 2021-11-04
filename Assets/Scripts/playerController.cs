@@ -5,14 +5,13 @@ using UnityEngine.AI;
 
 public class playerController : MonoBehaviour
 {
-    // Start is called before the first frame update
     NavMeshAgent agent;
     public GameObject clickLocation;
     public GameObject clickAttack;
     public GameObject followCamera;
 
     //Attacking a target
-    GameObject target;
+    public GameObject target;
     public float targetradius;
     public float timeBetweenAttacks;
     float timeTillNextAttack;
@@ -22,14 +21,23 @@ public class playerController : MonoBehaviour
     public float health;
     public float BasicAttackDam;
 
+    //traps
+    public GameObject[] traps;
+    public bool buildMode;
+
+
+    //player movement and sprites
+    public string direction;
+
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        transform.LookAt(followCamera.transform);
     }
 
     void Update()
     {
-
         playerMovement();
 
         if(target != null)
@@ -42,6 +50,10 @@ public class playerController : MonoBehaviour
         {
             Debug.Log("Dead");
         }
+
+
+        TrapMode();
+
     }
 
     void playerMovement()
@@ -53,14 +65,16 @@ public class playerController : MonoBehaviour
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
                 agent.destination = hit.point;
+                buildMode = false;
                 target = null;
+                playerDirection();
                 Instantiate(clickLocation, hit.point, Quaternion.identity);
             }
         }
         else if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
-
+            Debug.Log("attempting to click");
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
                 if (hit.transform.gameObject.tag == "Enemy")
@@ -75,14 +89,14 @@ public class playerController : MonoBehaviour
                     else
                     {
                         target = hit.transform.gameObject;
-                        agent.isStopped = true;
-                        Quaternion newRotation = Quaternion.LookRotation(hit.point - transform.position);
-                        newRotation.x = 0f;
-                        newRotation.z = 0f;
-                        transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, 10);
-                        agent.isStopped = false;
                     }
+                    playerDirection();
+                    buildMode = false;
                     Instantiate(clickAttack, hit.point, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.Log("miss");
                 }
 
             }
@@ -118,5 +132,48 @@ public class playerController : MonoBehaviour
             }
         }
         timeTillNextAttack -= Time.deltaTime;
+    }
+
+    void TrapMode()
+    {
+        //turning on build mode
+        if (Input.GetKeyDown("1"))
+        {
+            buildMode = true;
+        }
+
+        if (buildMode)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                RaycastHit hit;
+
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+                {
+                    if (hit.transform.gameObject.tag != "Enemy")
+                    {
+                        Instantiate(traps[0], hit.point, Quaternion.identity);
+                    }
+
+                }
+            }
+        }
+    }
+
+    void playerDirection()
+    {
+        Vector3 dir = agent.destination - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        if(angle > -155f && angle < -166f)
+        {
+            direction = "Up";
+        }
+        else
+        {
+            direction = "other";
+        }
+
+        Debug.Log(direction);
     }
 }

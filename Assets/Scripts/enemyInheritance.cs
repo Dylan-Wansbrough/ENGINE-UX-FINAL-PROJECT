@@ -18,6 +18,7 @@ public class enemyInheritance : MonoBehaviour
     public float damageAmount;
     public float timeBetweenAttacks;
     public float timeTillNextAttack;
+    
 
 
     public virtual void Start()
@@ -25,6 +26,8 @@ public class enemyInheritance : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         Target = GameObject.FindGameObjectWithTag("POI");
         agent = GetComponent<NavMeshAgent>();
+        Vector3 faceDir = new Vector3(10.65f, 7.64f, transform.position.z);
+        transform.LookAt(faceDir);
     }
 
     public virtual void Update()

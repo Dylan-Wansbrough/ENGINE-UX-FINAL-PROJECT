@@ -11,7 +11,7 @@ public class playerController : MonoBehaviour
     public GameObject followCamera;
 
     //Attacking a target
-    GameObject target;
+    public GameObject target;
     public float targetradius;
     public float timeBetweenAttacks;
     float timeTillNextAttack;
@@ -38,7 +38,6 @@ public class playerController : MonoBehaviour
 
     void Update()
     {
-        playerDirection();
         playerMovement();
 
         if(target != null)
@@ -68,13 +67,14 @@ public class playerController : MonoBehaviour
                 agent.destination = hit.point;
                 buildMode = false;
                 target = null;
+                playerDirection();
                 Instantiate(clickLocation, hit.point, Quaternion.identity);
             }
         }
         else if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
-
+            Debug.Log("attempting to click");
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
                 if (hit.transform.gameObject.tag == "Enemy")
@@ -90,8 +90,13 @@ public class playerController : MonoBehaviour
                     {
                         target = hit.transform.gameObject;
                     }
+                    playerDirection();
                     buildMode = false;
                     Instantiate(clickAttack, hit.point, Quaternion.identity);
+                }
+                else
+                {
+                    Debug.Log("miss");
                 }
 
             }
@@ -157,6 +162,18 @@ public class playerController : MonoBehaviour
 
     void playerDirection()
     {
-        
+        Vector3 dir = agent.destination - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        if(angle > -155f && angle < -166f)
+        {
+            direction = "Up";
+        }
+        else
+        {
+            direction = "other";
+        }
+
+        Debug.Log(direction);
     }
 }

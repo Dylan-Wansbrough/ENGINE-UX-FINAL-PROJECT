@@ -177,7 +177,7 @@ public class playerController : MonoBehaviour
         {
             direction = "up";
         }
-        else if (angle > 20f && angle <= 160f)
+        else if (angle > 20f && angle <= 165f)
         {
             float checkX = transform.position.z - agent.destination.z;
             if (checkX >= 0)
@@ -206,7 +206,7 @@ public class playerController : MonoBehaviour
             direction = "up";
             playerAnims.SetInteger("walkDir", 13);
         }
-        else if (angle > 20f && angle <= 160f)
+        else if (angle > 20f && angle <= 165f)
         {
             float checkX = transform.position.z - target.transform.position.z;
             if (checkX >= 0)

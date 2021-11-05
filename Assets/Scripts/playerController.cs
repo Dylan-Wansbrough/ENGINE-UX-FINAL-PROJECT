@@ -35,6 +35,7 @@ public class playerController : MonoBehaviour
 
 
     public LayerMask mask1;
+    public LayerMask mask2;
 
 
     void Start()
@@ -72,7 +73,7 @@ public class playerController : MonoBehaviour
         {
             RaycastHit hit;
 
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, mask2))
             {
                 agent.destination = hit.point;
                 buildMode = false;
@@ -86,7 +87,6 @@ public class playerController : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, mask1))
             {
-                Debug.Log(hit.collider.gameObject.tag);
                 if (hit.transform.gameObject.tag == "Enemy")
                 {
                     float dist = Vector3.Distance(hit.transform.position, transform.position);
@@ -157,7 +157,7 @@ public class playerController : MonoBehaviour
 
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
                 {
-                    if (hit.transform.gameObject.tag != "Enemy")
+                    if (hit.transform.gameObject.tag != "Trap" && hit.transform.gameObject.tag != "Player" && hit.transform.gameObject.tag != "Enemy" && hit.transform.gameObject.tag != "AntiPlace")
                     {
                         Instantiate(traps[0], hit.point, Quaternion.identity);
                     }
@@ -225,7 +225,6 @@ public class playerController : MonoBehaviour
             direction = "down";
             playerAnims.SetInteger("walkDir", 11);
         }
-        Debug.Log(direction);
     }
 
     void walkingAnims()

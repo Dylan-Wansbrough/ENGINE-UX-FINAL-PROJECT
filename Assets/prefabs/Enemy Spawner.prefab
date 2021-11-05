@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2186812745869834361}
   - component: {fileID: 2186812745869834360}
+  - component: {fileID: 5640749291677418577}
   m_Layer: 0
   m_Name: Enemy Spawner
-  m_TagString: Untagged
+  m_TagString: AntiPlace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,6 +49,19 @@ MonoBehaviour:
   - {fileID: 3032599093669798972, guid: e6db1da66c7d9e64bbc5805fdd8beec0, type: 3}
   spawnChance: 64000000
   timeBetweenSpawns: 6
+--- !u!65 &5640749291677418577
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2186812745869834362}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8, y: 2, z: 8}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8060367085574700410
 GameObject:
   m_ObjectHideFlags: 0

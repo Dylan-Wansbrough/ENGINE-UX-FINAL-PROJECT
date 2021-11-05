@@ -31,6 +31,7 @@ public class playerController : MonoBehaviour
     public GameObject spriteObject;
     SpriteRenderer spriRen;
     public Animator playerAnims;
+    Vector3 lastMovement;
 
 
     public LayerMask mask1;
@@ -47,8 +48,9 @@ public class playerController : MonoBehaviour
     void Update()
     {
         playerMovement();
+        walkingAnims();
 
-        if(target != null)
+        if (target != null)
         {
             AutoAttacking();
         }
@@ -61,7 +63,7 @@ public class playerController : MonoBehaviour
 
 
         TrapMode();
-
+        
     }
 
     void playerMovement()
@@ -92,13 +94,12 @@ public class playerController : MonoBehaviour
                     {
                         target = hit.transform.gameObject;
                         agent.destination = hit.point;
-                        
+                        playerDirection();
                     }
                     else
                     {
                         target = hit.transform.gameObject;
-                    }
-                    playerDirection();
+                    } 
                     buildMode = false;
                     Instantiate(clickAttack, hit.point, Quaternion.identity);
                 }
@@ -129,7 +130,8 @@ public class playerController : MonoBehaviour
             {
                 timeTillNextAttack = timeBetweenAttacks;
                 target.GetComponent<enemyInheritance>().health -= BasicAttackDam;
-                if(target == null)
+                targetDirection();
+                if (target == null)
                 {
                     agent.destination = transform.position;
                 }
@@ -169,28 +171,115 @@ public class playerController : MonoBehaviour
     {
         Vector3 dir = transform.position - agent.destination;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
         
 
-        if (angle > 0f && angle < 30f)
+        if (angle > 0f && angle < 20f)
         {
             direction = "up";
         }
-        else if (angle > 30f && angle <= 160f)
+        else if (angle > 20f && angle <= 165f)
         {
             float checkX = transform.position.z - agent.destination.z;
             if (checkX >= 0)
             {
-                direction = "left";
+                direction = "right";
             }
             else
             {
-                direction = "right";
+                direction = "left";
             }
         }
         else
         {
             direction = "down";
         }
+    }
+
+    void targetDirection()
+    {
+        Vector3 dir = transform.position - target.transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+
+        if (angle > 0f && angle < 20f)
+        {
+            direction = "up";
+            playerAnims.SetInteger("walkDir", 13);
+        }
+        else if (angle > 20f && angle <= 165f)
+        {
+            float checkX = transform.position.z - target.transform.position.z;
+            if (checkX >= 0)
+            {
+                direction = "right";
+                playerAnims.SetInteger("walkDir", 14);
+            }
+            else
+            {
+                direction = "left";
+                playerAnims.SetInteger("walkDir", 12);
+            }
+        }
+        else
+        {
+            direction = "down";
+            playerAnims.SetInteger("walkDir", 11);
+        }
+        Debug.Log(direction);
+    }
+
+    void walkingAnims()
+    {
+        bool notMoving = false;
+        if(lastMovement == transform.position)
+        {
+            notMoving = true;
+        }
+        switch (direction)
+        {
+            case "up":
+                if (notMoving){
+                    playerAnims.SetInteger("walkDir", 5);
+                }
+                else{
+                    playerAnims.SetInteger("walkDir", 3);
+                }
+                break;
+            case "left":
+                if (notMoving)
+                {
+                    playerAnims.SetInteger("walkDir", 5);
+                }
+                else
+                {
+                    playerAnims.SetInteger("walkDir", 2);
+                }
+                break;
+            case "right":
+                if (notMoving)
+                {
+                    playerAnims.SetInteger("walkDir", 5);
+                }
+                else
+                {
+                    playerAnims.SetInteger("walkDir", 4);
+                }
+                break;
+            case "down":
+                if (notMoving)
+                {
+                    playerAnims.SetInteger("walkDir", 5);
+                }
+                else
+                {
+                    playerAnims.SetInteger("walkDir", 1);
+                }
+                break;
+            default:
+                Debug.Log("Invalid direction");
+                break;
+        }
+
+        lastMovement = transform.position;
     }
 }

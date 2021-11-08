@@ -17,13 +17,14 @@ public class standardEnemy : enemyInheritance
     {
         base.Update();
 
-        if (inRange)
+        if (inRange && !Dead)
         {
             float dist = Vector3.Distance(Player.transform.position, transform.position);
             if (dist < attackRange)
             {
                 if (timeTillNextAttack <= 0)
                 {
+                    EnemyAnims.SetInteger("walkDir", 6);
                     timeTillNextAttack = timeBetweenAttacks;
                     Player.GetComponent<playerController>().health -= damageAmount;
                     //Add knockback in later please

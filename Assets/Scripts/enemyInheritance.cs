@@ -7,6 +7,7 @@ public class enemyInheritance : MonoBehaviour
 {
 
     public float health;
+    public int currencyWorth;
     public float playerRadius;
     public bool inRange;
     public GameObject Player;
@@ -32,39 +33,47 @@ public class enemyInheritance : MonoBehaviour
 
     public virtual void Update()
     {
-        float tardist = Vector3.Distance(Target.transform.position, transform.position);
-        float dist = Vector3.Distance(Player.transform.position, transform.position);
-        if (tardist < playerRadius)
+        if(POIController.gameOver != true)
         {
-            //overides chasing the player to go for the objective
-            if (tardist < 1)
+            float tardist = Vector3.Distance(Target.transform.position, transform.position);
+            float dist = Vector3.Distance(Player.transform.position, transform.position);
+            if (tardist < playerRadius)
             {
-                POIController.PortalHealth--;
+                //overides chasing the player to go for the objective
+                if (tardist < 1)
+                {
+                    POIController.PortalHealth--;
+                    Destroy(gameObject);
+                }
+
+                inRange = false;
+                agent.destination = Target.transform.position;
+
+            }
+            else if (dist < playerRadius)
+            {
+                inRange = true;
+                agent.destination = Player.transform.position;
+
+            }
+            else
+            {
+                inRange = false;
+                agent.destination = Target.transform.position;
+            }
+
+
+
+
+            if (health <= 0)
+            {
+                playerController.trapCurrency += currencyWorth;
                 Destroy(gameObject);
             }
-            
-            inRange = false;
-            agent.destination = Target.transform.position;
-
-        }else if (dist < playerRadius)
-        {
-            inRange = true;
-            agent.destination = Player.transform.position;
-
-        }else
-        {
-            inRange = false;
-            agent.destination = Target.transform.position;
         }
-        
-
-
-
-        if (health <= 0)
+        else
         {
-            Destroy(gameObject);
+            agent.destination = gameObject.transform.position;
         }
-
-        
     }
 }

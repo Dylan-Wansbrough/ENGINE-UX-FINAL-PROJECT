@@ -165,12 +165,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  currencyWorth: 5
   playerRadius: 12
   inRange: 0
   Player: {fileID: 0}
   Target: {fileID: 0}
   agent: {fileID: 0}
-  attackRange: 2
+  attackRange: 1.5
   damageAmount: 10
   timeBetweenAttacks: 0.5
   timeTillNextAttack: 0

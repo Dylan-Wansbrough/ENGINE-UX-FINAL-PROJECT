@@ -5,20 +5,34 @@ using UnityEngine;
 public class DamageTrap : trapInheritance
 {
     public GameObject visual;
+    public Animator anim;
+
+    public bool visualBool;
 
     // Start is called before the first frame update
     void Update()
     {
-        if(target != null)
+        if (POIController.gameOver != true)
         {
-            if(timer <= 0)
+            if (target != null)
             {
-                Instantiate(visual, transform.position, Quaternion.identity);
-                target.GetComponent<enemyInheritance>().health -= damage;
-                timer = timeBetweenSetOff;
+                if (timer <= 0)
+                {
+                    if (visualBool)
+                    {
+                        Instantiate(visual, transform.position, Quaternion.identity);
+                    }
+                    else
+                    {
+                        anim.SetTrigger("Stepped on");
+                    }
+
+                    target.GetComponent<enemyInheritance>().health -= damage;
+                    timer = timeBetweenSetOff;
+                }
             }
+            timer -= Time.deltaTime;
         }
-        timer -= Time.deltaTime;
     }
 
     // Update is called once per frame
@@ -27,6 +41,15 @@ public class DamageTrap : trapInheritance
         if(other.gameObject.tag == "Enemy")
         {
             target = other.gameObject;
+        }
+    }
+
+    // Update is called once per frame
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == target)
+        {
+            target = null;
         }
     }
 }

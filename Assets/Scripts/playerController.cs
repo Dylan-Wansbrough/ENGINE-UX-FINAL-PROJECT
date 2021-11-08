@@ -9,6 +9,7 @@ public class playerController : MonoBehaviour
     public GameObject clickLocation;
     public GameObject clickAttack;
     public GameObject followCamera;
+    public Vector3 repsawnLocation;
 
     //Attacking a target
     public GameObject target;
@@ -23,7 +24,10 @@ public class playerController : MonoBehaviour
 
     //traps
     public GameObject[] traps;
+    public int[] trapCost;
     public bool buildMode;
+    int trapButton;
+    public static int trapCurrency = 100;
 
 
     //player movement and sprites
@@ -37,6 +41,8 @@ public class playerController : MonoBehaviour
     public LayerMask mask1;
     public LayerMask mask2;
 
+    
+
 
     void Start()
     {
@@ -48,23 +54,38 @@ public class playerController : MonoBehaviour
 
     void Update()
     {
-        playerMovement();
-        walkingAnims();
-
-        if (target != null)
+        if (POIController.gameOver != true)
         {
-            AutoAttacking();
-        }
-        
+            playerMovement();
+            walkingAnims();
 
-        if(health <= 0)
+            if (target != null)
+            {
+                AutoAttacking();
+            }
+
+
+            if (health <= 0)
+            {
+                Debug.Log("Dead");
+            }
+
+
+            TrapMode();
+            if (health <= 0)
+            {
+                gameObject.transform.position = repsawnLocation;
+                agent.destination = transform.position;
+                target = null;
+                health = 100;
+                trapCurrency -= 50;
+                if (trapCurrency < 0) { trapCurrency = 0; }
+            }
+        }
+        else
         {
-            Debug.Log("Dead");
+            agent.destination = gameObject.transform.position;
         }
-
-
-        TrapMode();
-        
     }
 
     void playerMovement()
@@ -146,6 +167,12 @@ public class playerController : MonoBehaviour
         //turning on build mode
         if (Input.GetKeyDown("1"))
         {
+            trapButton = 1;
+            buildMode = true;
+        }
+        else if (Input.GetKeyDown("2"))
+        {
+            trapButton = 2;
             buildMode = true;
         }
 
@@ -159,7 +186,12 @@ public class playerController : MonoBehaviour
                 {
                     if (hit.transform.gameObject.tag != "Trap" && hit.transform.gameObject.tag != "Player" && hit.transform.gameObject.tag != "Enemy" && hit.transform.gameObject.tag != "AntiPlace")
                     {
-                        Instantiate(traps[0], hit.point, Quaternion.identity);
+                        if(trapCurrency >= trapCost[trapButton - 1])
+                        {
+                            trapCurrency -= trapCost[trapButton - 1];
+                            Instantiate(traps[trapButton - 1], hit.point, Quaternion.identity);
+                        }
+                        
                     }
 
                 }

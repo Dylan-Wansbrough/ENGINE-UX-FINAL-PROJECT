@@ -311,6 +311,8 @@ MonoBehaviour:
   timer: 0
   target: {fileID: 0}
   visual: {fileID: 6262158262213247771, guid: 1c46fdd6a2f0b3d45af649e58986eaf4, type: 3}
+  anim: {fileID: 0}
+  visualBool: 1
 --- !u!54 &-4750078203390820654
 Rigidbody:
   m_ObjectHideFlags: 0

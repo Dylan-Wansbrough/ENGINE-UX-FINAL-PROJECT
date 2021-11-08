@@ -15,23 +15,26 @@ public class enemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timer <= 0)
+        if (POIController.gameOver != true)
         {
-            int spawn = Random.Range(0, 100);
-
-            int i = 0;
-            while(i < spawnChance.Length)
+            if (timer <= 0)
             {
-                if (spawn <= spawnChance[i])
-                {
-                    Instantiate(enemies[i], transform.position, Quaternion.identity);
-                }
-                i++;
-            }
-            
-            timer = timeBetweenSpawns;
-        }
+                int spawn = Random.Range(0, 100);
 
-        timer -= Time.deltaTime;
+                int i = 0;
+                while (i < spawnChance.Length)
+                {
+                    if (spawn <= spawnChance[i])
+                    {
+                        Instantiate(enemies[i], transform.position, Quaternion.identity);
+                    }
+                    i++;
+                }
+
+                timer = timeBetweenSpawns;
+            }
+
+            timer -= Time.deltaTime;
+        }
     }
 }

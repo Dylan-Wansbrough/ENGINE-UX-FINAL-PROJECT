@@ -41,7 +41,12 @@ public class playerController : MonoBehaviour
     public LayerMask mask1;
     public LayerMask mask2;
 
-    
+
+    //abilities
+    public float[] cooldownDur;
+    public float[] cooldowns;
+    public float[] abilityDur;
+    public bool iframe;
 
 
     void Start()
@@ -72,6 +77,7 @@ public class playerController : MonoBehaviour
 
 
             TrapMode();
+            abilities();
             if (health <= 0)
             {
                 gameObject.transform.position = repsawnLocation;
@@ -312,5 +318,48 @@ public class playerController : MonoBehaviour
         }
 
         lastMovement = transform.position;
+    }
+
+    void abilities()
+    {
+        //Q ability 
+        if (Input.GetKeyDown("q"))
+        {
+            if (cooldowns[0] <= 0)
+            {
+                RaycastHit hit;
+
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, mask2))
+                {
+                    agent.speed = 100;
+                    agent.acceleration = 100;
+                    agent.destination = hit.point;
+                    buildMode = false;
+                    target = null;
+                    iframe = true;
+                    playerDirection();
+                    Instantiate(clickLocation, hit.point, Quaternion.identity);
+                    cooldowns[0] = cooldownDur[0];
+                }
+            }
+        }
+
+        if(cooldowns[0] <= (cooldownDur[0] - abilityDur[0]))
+        {
+            agent.speed = 10;
+            iframe = false;
+            agent.acceleration = 40;
+        }
+
+        if(cooldowns[0] > 0)
+        {
+            cooldowns[0] -= Time.deltaTime;
+        }
+        else { cooldowns[0] = 0; }
+        
+
+        //W ability 
+
+        //E ability
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class gameUI : MonoBehaviour
 {
@@ -33,6 +34,12 @@ public class gameUI : MonoBehaviour
         if (POIController.gameOver)
         {
             GameOver.text = "GAME OVER";
+            if (Input.GetKeyDown("space"))
+            {
+                POIController.PortalHealth = 20;
+                POIController.gameOver = false;
+                SceneManager.LoadScene("SampleScene");
+            }
         }     
     }
 }

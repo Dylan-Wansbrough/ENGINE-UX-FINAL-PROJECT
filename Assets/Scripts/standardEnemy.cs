@@ -26,9 +26,12 @@ public class standardEnemy : enemyInheritance
                 {
                     EnemyAnims.SetInteger("walkDir", 6);
                     timeTillNextAttack = timeBetweenAttacks;
-                    Player.GetComponent<playerController>().health -= damageAmount;
-                    //Add knockback in later please
-                    Debug.Log("Attacking Player for " + damageAmount + " damage.");
+                    if(Player.GetComponent<playerController>().iframe == false)
+                    {
+                        Player.GetComponent<playerController>().health -= damageAmount;
+                        //Add knockback in later please
+                        Debug.Log("Attacking Player for " + damageAmount + " damage.");
+                    }
                 }
             }
         }

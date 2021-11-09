@@ -19,6 +19,8 @@ public class gameController : MonoBehaviour
 
     public int spawnerAmount;
 
+    public bool roundFinished;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,11 +74,13 @@ public class gameController : MonoBehaviour
 
         if (totalSpawned == totalKilled)
         {
+            roundFinished = true;
             if (Input.GetKeyDown("f"))
             {
                 //start next round
                 round++;
                 roundStarted = false;
+                roundFinished = false;
                 totalSpawned = 0;
                 totalKilled = 0;
             }

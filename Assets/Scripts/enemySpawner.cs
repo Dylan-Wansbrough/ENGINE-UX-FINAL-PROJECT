@@ -11,16 +11,18 @@ public class enemySpawner : MonoBehaviour
     public float timeBetweenSpawns;
     float timer;
 
+    public float spawnAmount;
+
 
     // Update is called once per frame
     void Update()
     {
         if (POIController.gameOver != true)
         {
-            if (timer <= 0)
+            if (timer <= 0 && spawnAmount > 0)
             {
                 int spawn = Random.Range(0, 100);
-
+                spawnAmount--;
                 int i = 0;
                 while (i < spawnChance.Length)
                 {

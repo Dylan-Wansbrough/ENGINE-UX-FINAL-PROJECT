@@ -7,17 +7,20 @@ using UnityEngine.SceneManagement;
 public class gameUI : MonoBehaviour
 {
     public GameObject player;
+    public GameObject gameControl;
 
-    public Text Health;
     public Text TrapCurrency;
 
     public Text POILives;
     public Text GameOver;
 
+    public Text round;
+    public Text spawners;
+    public Text enemies;
+
     // Start is called before the first frame update
     void Start()
     {
-        Health.text = "Health: " + player.GetComponent<playerController>().health;
         TrapCurrency.text = "Trap Materials: " + playerController.trapCurrency;
         POILives.text = "20";
         GameOver.text = "";
@@ -26,9 +29,12 @@ public class gameUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Health.text = "Health: " + player.GetComponent<playerController>().health;
         TrapCurrency.text = "Trap Materials: " + playerController.trapCurrency;
         POILives.text = POIController.PortalHealth.ToString();
+
+        round.text = "Round: " + gameControl.GetComponent<gameController>().round;
+        enemies.text = "Enemies: " + (gameControl.GetComponent<gameController>().totalSpawned - gameController.totalKilled);
+        spawners.text = "Spawners: " + gameControl.GetComponent<gameController>().spawnerAmount;
 
         //game ends
         if (POIController.gameOver)
@@ -38,6 +44,8 @@ public class gameUI : MonoBehaviour
             {
                 POIController.PortalHealth = 20;
                 POIController.gameOver = false;
+                playerController.trapCurrency = 100;
+                gameController.totalKilled = 0;
                 SceneManager.LoadScene("SampleScene");
             }
         }     

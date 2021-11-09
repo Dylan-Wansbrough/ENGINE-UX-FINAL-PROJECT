@@ -356,10 +356,29 @@ public class playerController : MonoBehaviour
             cooldowns[0] -= Time.deltaTime;
         }
         else { cooldowns[0] = 0; }
-        
+
 
         //W ability 
 
         //E ability
+        if (Input.GetKeyDown("e"))
+        {
+            if (cooldowns[2] <= 0)
+            {
+                timeBetweenAttacks = 0.2f;
+                cooldowns[2] = cooldownDur[2];
+            }
+        }
+
+        if (cooldowns[2] <= (cooldownDur[2] - abilityDur[2]))
+        {
+            timeBetweenAttacks = 0.4f;
+        }
+
+        if (cooldowns[2] > 0)
+        {
+            cooldowns[2] -= Time.deltaTime;
+        }
+        else { cooldowns[2] = 0; }
     }
 }

@@ -49,6 +49,7 @@ public class enemyInheritance : MonoBehaviour
                 if (tardist < 1)
                 {
                     POIController.PortalHealth--;
+                    gameController.totalKilled++;
                     Destroy(gameObject);
                 }
 
@@ -81,6 +82,7 @@ public class enemyInheritance : MonoBehaviour
                 if(DeathTimer >= DeathTimeAmount)
                 {
                     playerController.trapCurrency += currencyWorth;
+                    gameController.totalKilled++;
                     Destroy(gameObject);
                 }
                 DeathTimer += Time.deltaTime;

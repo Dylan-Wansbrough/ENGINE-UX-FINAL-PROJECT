@@ -18,12 +18,17 @@ public class gameUI : MonoBehaviour
     public Text spawners;
     public Text enemies;
 
+    public Text roundOver;
+    public Text pressNext;
+
     // Start is called before the first frame update
     void Start()
     {
         TrapCurrency.text = "Trap Materials: " + playerController.trapCurrency;
         POILives.text = "20";
         GameOver.text = "";
+        roundOver.text = "";
+        pressNext.text = "";
     }
 
     // Update is called once per frame
@@ -35,6 +40,17 @@ public class gameUI : MonoBehaviour
         round.text = "Round: " + gameControl.GetComponent<gameController>().round;
         enemies.text = "Enemies: " + (gameControl.GetComponent<gameController>().totalSpawned - gameController.totalKilled);
         spawners.text = "Spawners: " + gameControl.GetComponent<gameController>().spawnerAmount;
+
+        if (gameControl.GetComponent<gameController>().roundFinished)
+        {
+            roundOver.text = "Round " + gameControl.GetComponent<gameController>().round + " complete";
+            pressNext.text = "Press F to start next round";
+        }
+        else
+        {
+            roundOver.text = "";
+            pressNext.text = "";
+        }
 
         //game ends
         if (POIController.gameOver)

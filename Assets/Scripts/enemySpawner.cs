@@ -12,6 +12,7 @@ public class enemySpawner : MonoBehaviour
     float timer;
 
     public float spawnAmount;
+    public float spawnHealthBoost;
 
 
     // Update is called once per frame
@@ -28,7 +29,8 @@ public class enemySpawner : MonoBehaviour
                 {
                     if (spawn <= spawnChance[i])
                     {
-                        Instantiate(enemies[i], transform.position, Quaternion.identity);
+                        GameObject newGo = Instantiate(enemies[i], transform.position, Quaternion.identity);
+                        newGo.GetComponent<enemyInheritance>().health = newGo.GetComponent<enemyInheritance>().health * spawnHealthBoost;
                     }
                     i++;
                 }

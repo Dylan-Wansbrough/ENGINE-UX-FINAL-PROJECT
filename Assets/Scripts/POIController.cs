@@ -10,7 +10,6 @@ public class POIController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Lives remaining " + PortalHealth);
         if (PortalHealth <= 0)
         {
             gameOver = true;

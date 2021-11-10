@@ -26,7 +26,7 @@ public class playerController : MonoBehaviour
     public GameObject[] traps;
     public int[] trapCost;
     public bool buildMode;
-    int trapButton;
+    public int trapButton;
     public static int trapCurrency = 100;
 
 
@@ -162,7 +162,6 @@ public class playerController : MonoBehaviour
                 {
                     agent.destination = transform.position;
                 }
-                Debug.Log("Attacking for " + BasicAttackDam + "damage.");
             }
         }
         timeTillNextAttack -= Time.deltaTime;
@@ -195,6 +194,7 @@ public class playerController : MonoBehaviour
                         if(trapCurrency >= trapCost[trapButton - 1])
                         {
                             trapCurrency -= trapCost[trapButton - 1];
+                            buildMode = false;
                             Instantiate(traps[trapButton - 1], hit.point, Quaternion.identity);
                         }
                         

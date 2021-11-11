@@ -8,6 +8,7 @@ TagManager:
   - POI
   - Trap
   - AntiPlace
+  - Ignore
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Enemies
   - PlayerChar
   - ClickableGround
-  - 
+  - NotPlace
   - 
   - 
   - 

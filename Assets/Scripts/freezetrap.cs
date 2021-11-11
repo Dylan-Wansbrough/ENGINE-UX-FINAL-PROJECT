@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageTrap : trapInheritance
+public class freezetrap : trapInheritance
 {
     public GameObject visual;
-    public Animator anim;
+    public float freeze;
 
-    public bool visualBool;
-
-    // Start is called before the first frame update
     void Update()
     {
         if (POIController.gameOver != true)
@@ -18,16 +15,8 @@ public class DamageTrap : trapInheritance
             {
                 if (timer <= 0)
                 {
-                    if (visualBool)
-                    {
-                        Instantiate(visual, transform.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
-                    }
-                    else
-                    {
-                        anim.SetTrigger("Stepped on");
-                    }
-
-                    target.GetComponent<enemyInheritance>().health -= damage;
+                    Instantiate(visual, transform.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
+                    target.GetComponent<enemyInheritance>().freezeTime += freeze;
                     timer = timeBetweenSetOff;
                 }
             }
@@ -38,7 +27,7 @@ public class DamageTrap : trapInheritance
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy")
         {
             target = other.gameObject;
         }

@@ -27,6 +27,9 @@ public class enemyInheritance : MonoBehaviour
     public float DeathTimeAmount;
     public float DeathTimer;
 
+    public float freezeTime;
+    public float speed;
+
 
     public virtual void Start()
     {
@@ -86,6 +89,16 @@ public class enemyInheritance : MonoBehaviour
                     Destroy(gameObject);
                 }
                 DeathTimer += Time.deltaTime;
+            }
+
+            if(freezeTime > 0)
+            {
+                freezeTime -= Time.deltaTime;
+                agent.speed = 0;
+            }
+            else
+            {
+                agent.speed = speed;
             }
         }
         else

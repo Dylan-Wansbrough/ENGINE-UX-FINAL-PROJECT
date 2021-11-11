@@ -27,7 +27,7 @@ public class playerController : MonoBehaviour
     public int[] trapCost;
     public bool buildMode;
     public int trapButton;
-    public static int trapCurrency = 100;
+    public static int trapCurrency = 500;
 
 
     //player movement and sprites
@@ -185,6 +185,17 @@ public class playerController : MonoBehaviour
         else if (Input.GetKeyDown("2"))
         {
             trapButton = 2;
+            if (trapCurrency >= trapCost[trapButton - 1])
+            {
+                buildMode = true;
+            }
+            else
+            {
+                buildMode = false;
+            }
+        }else if (Input.GetKeyDown("3"))
+        {
+            trapButton = 3;
             if (trapCurrency >= trapCost[trapButton - 1])
             {
                 buildMode = true;

@@ -300,6 +300,8 @@ MonoBehaviour:
   Dead: 0
   DeathTimeAmount: 0.583
   DeathTimer: 0
+  freezeTime: 0
+  speed: 3.5
 --- !u!212 &1663678558923954891
 SpriteRenderer:
   m_ObjectHideFlags: 0

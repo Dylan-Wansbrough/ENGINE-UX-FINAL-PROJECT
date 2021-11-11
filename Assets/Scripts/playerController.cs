@@ -40,6 +40,7 @@ public class playerController : MonoBehaviour
 
     public LayerMask mask1;
     public LayerMask mask2;
+    public LayerMask mask3;
 
 
     //abilities
@@ -173,12 +174,25 @@ public class playerController : MonoBehaviour
         if (Input.GetKeyDown("1"))
         {
             trapButton = 1;
-            buildMode = true;
+            if (trapCurrency >= trapCost[trapButton - 1])
+            {
+                buildMode = true;
+            }else
+            {
+                buildMode = false;
+            }
         }
         else if (Input.GetKeyDown("2"))
         {
             trapButton = 2;
-            buildMode = true;
+            if (trapCurrency >= trapCost[trapButton - 1])
+            {
+                buildMode = true;
+            }
+            else
+            {
+                buildMode = false;
+            }
         }
 
         if (buildMode)
@@ -187,7 +201,7 @@ public class playerController : MonoBehaviour
             {
                 RaycastHit hit;
 
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, mask3))
                 {
                     if (hit.transform.gameObject.tag != "Trap" && hit.transform.gameObject.tag != "Player" && hit.transform.gameObject.tag != "Enemy" && hit.transform.gameObject.tag != "AntiPlace")
                     {

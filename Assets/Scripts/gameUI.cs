@@ -21,6 +21,8 @@ public class gameUI : MonoBehaviour
     public Text roundOver;
     public Text pressNext;
 
+    public GameObject pauseMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +52,15 @@ public class gameUI : MonoBehaviour
         {
             roundOver.text = "";
             pressNext.text = "";
+        }
+
+        if (gameController.isPaused)
+        {
+            pauseMenu.SetActive(true);
+        }
+        else
+        {
+            pauseMenu.SetActive(false);
         }
 
         //game ends

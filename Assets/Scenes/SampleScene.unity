@@ -3298,7 +3298,7 @@ MonoBehaviour:
   hitArea:
   - {x: 15, y: 15}
   - {x: 30, y: 30}
-  - {x: 20, y: 20}
+  - {x: 22.5, y: 22.5}
   mask1:
     serializedVersion: 2
     m_Bits: 3072
@@ -3342,7 +3342,7 @@ MonoBehaviour:
   - {fileID: 5574130558214338881, guid: be7385c782938a94baf83f9cd30e6db9, type: 3}
   - {fileID: 3868565961174247429, guid: b7447ec2f8591d844a8b5ae0818d7bcd, type: 3}
   - {fileID: 3332322399106746394, guid: d49f3511b3b0fd849b73de3659eb4d7a, type: 3}
-  trapCost: 64000000c8000000fa000000
+  trapCost: 6400000096000000c8000000
   buildMode: 0
   trapButton: 0
   direction: 

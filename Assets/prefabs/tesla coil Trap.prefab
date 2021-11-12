@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenSetOff: 0.5
-  damage: 10
+  damage: 11
   timer: 0
   target: {fileID: 0}
   visual: {fileID: 6262158262213247771, guid: 1c46fdd6a2f0b3d45af649e58986eaf4, type: 3}

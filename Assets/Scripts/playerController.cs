@@ -27,7 +27,7 @@ public class playerController : MonoBehaviour
     public int[] trapCost;
     public bool buildMode;
     public int trapButton;
-    public static int trapCurrency = 500;
+    public static int trapCurrency = 100;
 
 
     //player movement and sprites
@@ -49,7 +49,7 @@ public class playerController : MonoBehaviour
     public float[] abilityDur;
     public bool iframe;
 
-
+    bool pressed;
     void Start()
     {
         spriRen = spriteObject.GetComponent<SpriteRenderer>();
@@ -103,6 +103,10 @@ public class playerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
+            pressed = true;
+        }
+        if (Input.GetMouseButton(1))
+        {
             RaycastHit hit;
 
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, mask2))
@@ -111,7 +115,11 @@ public class playerController : MonoBehaviour
                 buildMode = false;
                 target = null;
                 playerDirection();
-                Instantiate(clickLocation, hit.point, Quaternion.identity);
+                if (pressed)
+                {
+                    Instantiate(clickLocation, hit.point, Quaternion.identity);
+                    pressed = false;
+                }
             }
         }
         else if (Input.GetMouseButtonDown(0))

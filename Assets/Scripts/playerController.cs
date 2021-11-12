@@ -27,7 +27,7 @@ public class playerController : MonoBehaviour
     public int[] trapCost;
     public bool buildMode;
     public int trapButton;
-    public static int trapCurrency = 100;
+    public static int trapCurrency = 500;
 
 
     //player movement and sprites

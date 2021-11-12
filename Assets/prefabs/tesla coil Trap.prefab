@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6676248608880184749}
   - component: {fileID: 2074302258784120213}
   - component: {fileID: 4357701167848572260}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pTorus2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 5321903206765859205}
   - component: {fileID: 6039543116215724157}
   - component: {fileID: 2990803786589426935}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pDisc1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 565243198117265354}
   - component: {fileID: 5711629034113376710}
   - component: {fileID: 4988313175839135012}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pSphere1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: -66220559240917389}
   - component: {fileID: 5182414251781140279}
   - component: {fileID: -4750078203390820654}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: tesla coil Trap
   m_TagString: Trap
   m_Icon: {fileID: 0}
@@ -292,8 +292,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6, y: 3, z: 6}
-  m_Center: {x: 0, y: 1.5, z: 0}
+  m_Size: {x: 6, y: 0.2, z: 6}
+  m_Center: {x: 0, y: 0.15, z: 0}
 --- !u!114 &5182414251781140279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 4893991583926898309}
   - component: {fileID: 8601873604179981683}
   - component: {fileID: 1997938298824629725}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pTorus1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 2556166344752695058}
   - component: {fileID: 5979336673251260228}
   - component: {fileID: 2256936262649258725}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: pTorus3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

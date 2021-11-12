@@ -20,7 +20,7 @@ public class DamageTrap : trapInheritance
                 {
                     if (visualBool)
                     {
-                        Instantiate(visual, transform.position, Quaternion.identity);
+                        Instantiate(visual, transform.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
                     }
                     else
                     {

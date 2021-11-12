@@ -10,15 +10,22 @@ public class buildModePreview : MonoBehaviour
     bool buildingPreview;
     int buildNum;
 
-    public Mesh[] cantplace;
-    public Mesh[] okayplace;
+    public Mesh[] trap;
+
+    public Material invalidMat;
+    public Material validMat;
 
     public GameObject placing;
+    MeshFilter m_mesh;
+    MeshRenderer m_Texture;
+
+    public LayerMask mask1;
 
 
     void Start()
     {
-        //placing = Instantiate(cantplace[0], new Vector3(3000, 300, 3000), Quaternion.identity);
+        m_mesh = placing.GetComponent<MeshFilter>();
+        m_Texture = placing.GetComponent<MeshRenderer>();
     }
 
     // Update is called once per frame
@@ -32,20 +39,29 @@ public class buildModePreview : MonoBehaviour
 
                 RaycastHit hit;
 
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, mask1))
                 {
+                    if(hit.transform.gameObject.tag != "Ignore") { 
+                        placing.transform.position = hit.point;
+                    }
                     
+                    m_mesh.mesh = trap[buildNum - 1];
                     if (hit.transform.gameObject.tag != "Trap" && hit.transform.gameObject.tag != "Player" && hit.transform.gameObject.tag != "Enemy" && hit.transform.gameObject.tag != "AntiPlace")
                     {
-                        //placing = okayplace[buildNum-1];
-                    }else{
-                        //placing = cantplace[buildNum-1];
+                        m_Texture.material = validMat;
+                    }
+                    else{
+                        m_Texture.material = invalidMat;
                     }
 
                 }else{
-                    placing = null;
+                    placing.transform.position = new Vector3(300, 300, 300);
                 }
 
+        }
+        else
+        {
+            placing.transform.position = new Vector3(300, 300, 300);
         }
     }
 }

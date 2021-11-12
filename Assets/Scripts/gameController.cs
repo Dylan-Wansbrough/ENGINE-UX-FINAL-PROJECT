@@ -57,6 +57,7 @@ public class gameController : MonoBehaviour
 
             if (!roundStarted)
             {
+                player.GetComponent<playerController>().health += 10;
                 if (round < 4)
                 {
                     spawnvalues = waveVals[0];

@@ -27,7 +27,7 @@ public class playerController : MonoBehaviour
     public int[] trapCost;
     public bool buildMode;
     public int trapButton;
-    public static int trapCurrency = 500;
+    public static int trapCurrency = 100;
 
 
     //player movement and sprites
@@ -79,6 +79,10 @@ public class playerController : MonoBehaviour
 
             TrapMode();
             abilities();
+            if(health > 100)
+            {
+                health = 100;
+            }
             if (health <= 0)
             {
                 gameObject.transform.position = repsawnLocation;

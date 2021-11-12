@@ -9,6 +9,7 @@ public class enemyInheritance : MonoBehaviour
     public float health;
     public int currencyWorth;
     public float playerRadius;
+    public float targetRadius;
     public bool inRange;
     public GameObject Player;
     public GameObject Target;
@@ -46,7 +47,7 @@ public class enemyInheritance : MonoBehaviour
         {
             float tardist = Vector3.Distance(Target.transform.position, transform.position);
             float dist = Vector3.Distance(Player.transform.position, transform.position);
-            if (tardist < playerRadius)
+            if (tardist < targetRadius)
             {
                 //overides chasing the player to go for the objective
                 if (tardist < 1)

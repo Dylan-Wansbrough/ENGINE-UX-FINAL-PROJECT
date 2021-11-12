@@ -47,8 +47,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 3032599093669798972, guid: e6db1da66c7d9e64bbc5805fdd8beec0, type: 3}
-  spawnChance: 64000000
+  - {fileID: 623730581478322637, guid: 1bea6b82076ddbe47ad7f6d5f0a12b78, type: 3}
+  spawnChance: 4600000064000000
   timeBetweenSpawns: 6
+  spawnAmount: 0
+  spawnHealthBoost: 0
 --- !u!65 &5640749291677418577
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -24,15 +24,14 @@ public class enemySpawner : MonoBehaviour
             {
                 int spawn = Random.Range(0, 100);
                 spawnAmount--;
-                int i = 0;
-                while (i < spawnChance.Length)
+                if (spawn <= spawnChance[0])
                 {
-                    if (spawn <= spawnChance[i])
-                    {
-                        GameObject newGo = Instantiate(enemies[i], transform.position, Quaternion.identity);
-                        newGo.GetComponent<enemyInheritance>().health = newGo.GetComponent<enemyInheritance>().health * spawnHealthBoost;
-                    }
-                    i++;
+                    GameObject newGo = Instantiate(enemies[0], transform.position, Quaternion.identity);
+                    newGo.GetComponent<enemyInheritance>().health = newGo.GetComponent<enemyInheritance>().health * spawnHealthBoost;
+                }else if (spawn <= spawnChance[1])
+                {
+                    GameObject newGo = Instantiate(enemies[1], transform.position, Quaternion.identity);
+                    newGo.GetComponent<enemyInheritance>().health = newGo.GetComponent<enemyInheritance>().health * spawnHealthBoost;
                 }
 
                 timer = timeBetweenSpawns;

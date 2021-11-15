@@ -383,7 +383,7 @@ public class playerController : MonoBehaviour
 
         if(cooldowns[0] <= (cooldownDur[0] - abilityDur[0]))
         {
-            agent.speed = 10;
+            agent.speed = 14;
             iframe = false;
             agent.acceleration = 40;
         }

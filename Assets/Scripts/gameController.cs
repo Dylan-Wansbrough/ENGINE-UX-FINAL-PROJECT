@@ -149,6 +149,11 @@ public class gameController : MonoBehaviour
 
                     //boost enemy health
                     spawnPoints[spawnerNum].GetComponent<enemySpawner>().spawnHealthBoost = boostHealthAmount;
+
+
+                    spawnPoints[spawnerNum].GetComponent<enemySpawner>().spawnAtOnce = Random.Range(1, spawnvalues.spawnAmount + 1);
+
+
                     i++;
                 }
                 previousNum.Clear();

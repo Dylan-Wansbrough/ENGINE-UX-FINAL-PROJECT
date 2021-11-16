@@ -11,6 +11,8 @@ public class enemySpawner : MonoBehaviour
     public float timeBetweenSpawns;
     float timer;
 
+    public float spawnAtOnce;
+
     public float spawnAmount;
     public float spawnHealthBoost;
 
@@ -24,19 +26,26 @@ public class enemySpawner : MonoBehaviour
             if (timer <= 0 && spawnAmount > 0)
             {
                 mapIcon.SetActive(true);
-                int spawn = Random.Range(0, 100);
-                spawnAmount--;
-                if (spawn <= spawnChance[0])
+                int i = 0;
+                while (i < spawnAtOnce)
                 {
-                    GameObject newGo = Instantiate(enemies[0], transform.position, Quaternion.identity);
-                    newGo.GetComponent<enemyInheritance>().health = newGo.GetComponent<enemyInheritance>().health * spawnHealthBoost;
-                }else if (spawn <= spawnChance[1])
-                {
-                    GameObject newGo = Instantiate(enemies[1], transform.position, Quaternion.identity);
-                    newGo.GetComponent<enemyInheritance>().health = newGo.GetComponent<enemyInheritance>().health * spawnHealthBoost;
-                }
+                    int spawn = Random.Range(0, 100);
+                    spawnAmount--;
+                    if (spawn <= spawnChance[0])
+                    {
+                        GameObject newGo = Instantiate(enemies[0], transform.position, Quaternion.identity);
+                        newGo.GetComponent<enemyInheritance>().health = newGo.GetComponent<enemyInheritance>().health * spawnHealthBoost;
+                    }
+                    else if (spawn <= spawnChance[1])
+                    {
+                        GameObject newGo = Instantiate(enemies[1], transform.position, Quaternion.identity);
+                        newGo.GetComponent<enemyInheritance>().health = newGo.GetComponent<enemyInheritance>().health * spawnHealthBoost;
+                    }
 
-                timer = timeBetweenSpawns;
+                    timer = timeBetweenSpawns;
+                    i++;
+                }
+                
             }
 
             timer -= Time.deltaTime;

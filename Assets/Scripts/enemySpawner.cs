@@ -14,6 +14,7 @@ public class enemySpawner : MonoBehaviour
     public float spawnAmount;
     public float spawnHealthBoost;
 
+    public GameObject mapIcon;
 
     // Update is called once per frame
     void Update()
@@ -22,6 +23,7 @@ public class enemySpawner : MonoBehaviour
         {
             if (timer <= 0 && spawnAmount > 0)
             {
+                mapIcon.SetActive(true);
                 int spawn = Random.Range(0, 100);
                 spawnAmount--;
                 if (spawn <= spawnChance[0])

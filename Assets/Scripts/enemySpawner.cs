@@ -41,6 +41,11 @@ public class enemySpawner : MonoBehaviour
                         GameObject newGo = Instantiate(enemies[1], transform.position, Quaternion.identity);
                         newGo.GetComponent<enemyInheritance>().health = newGo.GetComponent<enemyInheritance>().health * spawnHealthBoost;
                     }
+                    else if (spawn <= spawnChance[2])
+                    {
+                        GameObject newGo = Instantiate(enemies[2], transform.position, Quaternion.identity);
+                        newGo.GetComponent<enemyInheritance>().health = newGo.GetComponent<enemyInheritance>().health * spawnHealthBoost;
+                    }
 
                     timer = timeBetweenSpawns;
                     i++;

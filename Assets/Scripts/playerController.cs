@@ -47,6 +47,7 @@ public class playerController : MonoBehaviour
     public float[] cooldownDur;
     public float[] cooldowns;
     public float[] abilityDur;
+    public GameObject bomb;
     public bool iframe;
 
     bool pressed;
@@ -396,6 +397,26 @@ public class playerController : MonoBehaviour
 
 
         //W ability 
+        if (Input.GetKeyDown("w"))
+        {
+            if (cooldowns[1] <= 0)
+            {
+                RaycastHit hit;
+
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, mask2))
+                {
+                    GameObject newGo = Instantiate(bomb, gameObject.transform.position, Quaternion.identity);
+                    newGo.GetComponent<bombAbility>().ExplosionLoc = hit.point;
+                    cooldowns[1] = cooldownDur[1];
+                }               
+            }
+        }
+
+        if (cooldowns[1] > 0)
+        {
+            cooldowns[1] -= Time.deltaTime;
+        }
+        else { cooldowns[1] = 0; }
 
         //E ability
         if (Input.GetKeyDown("e"))

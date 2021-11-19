@@ -29,7 +29,7 @@ public class standardEnemy : enemyInheritance
                     if(Player.GetComponent<playerController>().iframe == false)
                     {
                         Player.GetComponent<playerController>().health -= damageAmount;
-                        //Add knockback in later please
+                        Instantiate(playerBlood, Player.transform.position, Quaternion.identity);
                         Debug.Log("Attacking Player for " + damageAmount + " damage.");
                     }
                 }

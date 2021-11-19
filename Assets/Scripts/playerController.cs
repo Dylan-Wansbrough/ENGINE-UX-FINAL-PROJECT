@@ -72,12 +72,6 @@ public class playerController : MonoBehaviour
             }
 
 
-            if (health <= 0)
-            {
-                Debug.Log("Dead");
-            }
-
-
             TrapMode();
             abilities();
             if(health > 100)
@@ -87,7 +81,7 @@ public class playerController : MonoBehaviour
             if (health <= 0)
             {
                 gameObject.transform.position = repsawnLocation;
-                agent.destination = transform.position;
+                agent.destination = repsawnLocation;
                 target = null;
                 health = 100;
                 trapCurrency -= 50;
@@ -174,6 +168,7 @@ public class playerController : MonoBehaviour
                 targetDirection();
                 if (target == null)
                 {
+                    Debug.Log("this one?");
                     agent.destination = transform.position;
                 }
             }

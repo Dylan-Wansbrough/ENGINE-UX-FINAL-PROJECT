@@ -16,9 +16,16 @@ public class minimapPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float yPos = Remap(player.transform.position.x, -138.07f, -236.38f, -506.5f, -342.57f);
-        float xPos = Remap(player.transform.position.z, -81.07f, 98.29f, -872.45f, -562.4f); //fix this
-        m_RectTransform.anchoredPosition = new Vector2(xPos, yPos);
+        if (player == null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            float yPos = Remap(player.transform.position.x, -138.07f, -236.38f, -506.5f, -342.57f);
+            float xPos = Remap(player.transform.position.z, -81.07f, 98.29f, -872.45f, -562.4f); //fix this
+            m_RectTransform.anchoredPosition = new Vector2(xPos, yPos);
+        }
     }
 
     float Remap(float from, float fromMin, float fromMax, float toMin, float toMax)

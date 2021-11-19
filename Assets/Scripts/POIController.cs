@@ -14,6 +14,8 @@ public class POIController : MonoBehaviour
     bool up;
     Color col = new Color(0, 0.9418654f, 1);
 
+    public Light lighty;
+
     private void Update()
     {
         if (PortalHealth <= 0)
@@ -24,11 +26,13 @@ public class POIController : MonoBehaviour
 
         if(up){
           alpha += 0.001f;
-          if(alpha > 0.4f){
+          lighty.range += 0.03f;
+          if (alpha > 0.4f){
             up =  false;
           }
         }else{
           alpha -= 0.001f;
+          lighty.range -= 0.03f;
           if(alpha < 0f){
             up =  true;
           }

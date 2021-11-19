@@ -18,6 +18,14 @@ public class enemySpawner : MonoBehaviour
 
     public GameObject mapIcon;
 
+    public SpriteRenderer inner;
+
+    float alpha = 0.2f;
+    bool up;
+    Color col = new Color(0.7735849f, 0.08392668f, 0.08392668f);
+
+    public Light lighty;
+
     // Update is called once per frame
     void Update()
     {
@@ -55,5 +63,26 @@ public class enemySpawner : MonoBehaviour
 
             timer -= Time.deltaTime;
         }
+
+        if (up)
+        {
+            alpha += 0.001f;
+            lighty.range += 0.03f;
+            if (alpha > 0.4f)
+            {
+                up = false;
+            }
+        }
+        else
+        {
+            alpha -= 0.001f;
+            lighty.range -= 0.03f;
+            if (alpha < 0f)
+            {
+                up = true;
+            }
+        }
+        col.a = alpha;
+        inner.color = col;
     }
 }

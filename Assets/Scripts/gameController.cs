@@ -6,6 +6,8 @@ public class gameController : MonoBehaviour
 {
     public GameObject[] spawnPoints;
     public GameObject[] Doors;
+    public GameObject[] DoorIcon;
+    public GameObject[] SpawnIcons;
     public GameObject player;
 
     public int round;
@@ -57,6 +59,7 @@ public class gameController : MonoBehaviour
 
             if (!roundStarted)
             {
+                player.GetComponent<playerController>().health += 10;
                 if (round < 4)
                 {
                     spawnvalues = waveVals[0];
@@ -83,17 +86,25 @@ public class gameController : MonoBehaviour
                     boostHealthAmount += 0.025f;
                     if (boostHealthAmount > 3) { boostHealthAmount = 3; }
                     player.GetComponent<playerController>().BasicAttackDam = 25 * boostHealthAmount;
-
-                    int p = 0;
-                    while (p < Doors.Length)
-                    {
-                        Doors[p].SetActive(false);
-                        p++;
-                    }
-
-                    int doorNum = Random.Range(0, Doors.Length + 5);
-                    if (doorNum < Doors.Length) { Doors[doorNum].SetActive(true); }
                 }
+
+                int p = 0;
+                while (p < Doors.Length)
+                {
+                    Doors[p].SetActive(false);
+                    DoorIcon[p].SetActive(false);
+                    p++;
+                }
+
+                int b = 0;
+                while (b < SpawnIcons.Length)
+                {
+                    SpawnIcons[b].SetActive(false);
+                    b++;
+                }
+
+                int doorNum = Random.Range(0, Doors.Length + 5);
+                if (doorNum < Doors.Length) { Doors[doorNum].SetActive(true); DoorIcon[doorNum].SetActive(true); }
 
                 spawnerAmount = Random.Range(spawnvalues.minSpawner, spawnvalues.maxSpawner + 1);
 
@@ -138,6 +149,11 @@ public class gameController : MonoBehaviour
 
                     //boost enemy health
                     spawnPoints[spawnerNum].GetComponent<enemySpawner>().spawnHealthBoost = boostHealthAmount;
+
+
+                    spawnPoints[spawnerNum].GetComponent<enemySpawner>().spawnAtOnce = Random.Range(1, spawnvalues.spawnAmount + 1);
+
+
                     i++;
                 }
                 previousNum.Clear();

@@ -27,7 +27,7 @@ public class playerController : MonoBehaviour
     public int[] trapCost;
     public bool buildMode;
     public int trapButton;
-    public static int trapCurrency = 500;
+    public static int trapCurrency = 100;
 
 
     //player movement and sprites
@@ -47,9 +47,10 @@ public class playerController : MonoBehaviour
     public float[] cooldownDur;
     public float[] cooldowns;
     public float[] abilityDur;
+    public GameObject bomb;
     public bool iframe;
 
-
+    bool pressed;
     void Start()
     {
         spriRen = spriteObject.GetComponent<SpriteRenderer>();
@@ -71,18 +72,16 @@ public class playerController : MonoBehaviour
             }
 
 
-            if (health <= 0)
-            {
-                Debug.Log("Dead");
-            }
-
-
             TrapMode();
             abilities();
+            if(health > 100)
+            {
+                health = 100;
+            }
             if (health <= 0)
             {
                 gameObject.transform.position = repsawnLocation;
-                agent.destination = transform.position;
+                agent.destination = repsawnLocation;
                 target = null;
                 health = 100;
                 trapCurrency -= 50;
@@ -99,6 +98,10 @@ public class playerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
+            pressed = true;
+        }
+        if (Input.GetMouseButton(1))
+        {
             RaycastHit hit;
 
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, mask2))
@@ -107,7 +110,11 @@ public class playerController : MonoBehaviour
                 buildMode = false;
                 target = null;
                 playerDirection();
-                Instantiate(clickLocation, hit.point, Quaternion.identity);
+                if (pressed)
+                {
+                    Instantiate(clickLocation, hit.point, Quaternion.identity);
+                    pressed = false;
+                }
             }
         }
         else if (Input.GetMouseButtonDown(0))
@@ -161,6 +168,7 @@ public class playerController : MonoBehaviour
                 targetDirection();
                 if (target == null)
                 {
+                    Debug.Log("this one?");
                     agent.destination = transform.position;
                 }
             }
@@ -371,7 +379,7 @@ public class playerController : MonoBehaviour
 
         if(cooldowns[0] <= (cooldownDur[0] - abilityDur[0]))
         {
-            agent.speed = 10;
+            agent.speed = 14;
             iframe = false;
             agent.acceleration = 40;
         }
@@ -384,6 +392,26 @@ public class playerController : MonoBehaviour
 
 
         //W ability 
+        if (Input.GetKeyDown("w"))
+        {
+            if (cooldowns[1] <= 0)
+            {
+                RaycastHit hit;
+
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, mask2))
+                {
+                    GameObject newGo = Instantiate(bomb, gameObject.transform.position, Quaternion.identity);
+                    newGo.GetComponent<bombAbility>().ExplosionLoc = hit.point;
+                    cooldowns[1] = cooldownDur[1];
+                }               
+            }
+        }
+
+        if (cooldowns[1] > 0)
+        {
+            cooldowns[1] -= Time.deltaTime;
+        }
+        else { cooldowns[1] = 0; }
 
         //E ability
         if (Input.GetKeyDown("e"))

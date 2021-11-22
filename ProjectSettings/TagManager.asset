@@ -9,6 +9,8 @@ TagManager:
   - Trap
   - AntiPlace
   - Ignore
+  - mini map icons
+  - New tag
   layers:
   - Default
   - TransparentFX

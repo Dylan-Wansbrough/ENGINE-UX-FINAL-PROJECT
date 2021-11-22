@@ -1,0 +1,577 @@
+fileFormatVersion: 2
+guid: 9651130150e031b498d219beec435476
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9121834411071384213
+    second: Dying Sprite Back R3_0
+  - first:
+      213: -8682161567372550778
+    second: Dying Sprite Back R3_1
+  - first:
+      213: 8950495628349068496
+    second: Dying Sprite Back R3_2
+  - first:
+      213: 3472414318642454060
+    second: Dying Sprite Back R3_3
+  - first:
+      213: 2266013057047253588
+    second: Dying Sprite Back R3_4
+  - first:
+      213: 3464675629907948594
+    second: Dying Sprite Back R3_5
+  - first:
+      213: 394480324978461435
+    second: Dying Sprite Back R3_6
+  - first:
+      213: 1467978270743210969
+    second: Dying Sprite Back R3_7
+  - first:
+      213: -1478989114074567613
+    second: Dying Sprite Back R3_8
+  - first:
+      213: -2880061466304963942
+    second: Dying Sprite Back R3_9
+  - first:
+      213: -3761172898880368832
+    second: Dying Sprite Back R3_10
+  - first:
+      213: -8090638711026148036
+    second: Dying Sprite Back R3_11
+  - first:
+      213: 8791460375626442792
+    second: Dying Sprite Back R3_12
+  - first:
+      213: -5245706655295374700
+    second: Dying Sprite Back R3_13
+  - first:
+      213: -8869320459327384760
+    second: Dying Sprite Back R3_14
+  - first:
+      213: -8634820187739071566
+    second: Dying Sprite Back R3_15
+  - first:
+      213: -8366824584619512813
+    second: Dying Sprite Back R3_16
+  - first:
+      213: 7471994603336161027
+    second: Dying Sprite Back R3_17
+  - first:
+      213: -5526688084730770504
+    second: Dying Sprite Back R3_18
+  - first:
+      213: 7175524819534350938
+    second: Dying Sprite Back R3_19
+  - first:
+      213: -6756946506852671615
+    second: Dying Sprite Back R3_20
+  - first:
+      213: -5732161879277813703
+    second: Dying Sprite Back R3_21
+  - first:
+      213: 4074952645218019642
+    second: Dying Sprite Back R3_22
+  - first:
+      213: -6564193911239042489
+    second: Dying Sprite Back R3_23
+  - first:
+      213: 7602435785914495489
+    second: Dying Sprite Back R3_24
+  - first:
+      213: -2998825099637888323
+    second: Dying Sprite Back R3_25
+  - first:
+      213: 5984498961339086493
+    second: Dying Sprite Back R3_26
+  - first:
+      213: 3334250112128157231
+    second: Dying Sprite Back R3_27
+  - first:
+      213: -1870584786654858521
+    second: Dying Sprite Back R3_28
+  - first:
+      213: 3707436246161146872
+    second: Dying Sprite Back R3_29
+  - first:
+      213: 6272742449506210720
+    second: Dying Sprite Back R3_30
+  - first:
+      213: 6576915896549251638
+    second: Dying Sprite Back R3_31
+  - first:
+      213: 6286673598754366565
+    second: Dying Sprite Back R3_32
+  - first:
+      213: -2379865088830597759
+    second: Dying Sprite Back R3_33
+  - first:
+      213: -6059749857890067092
+    second: Dying Sprite Back R3_34
+  - first:
+      213: -1860731729769590173
+    second: Dying Sprite Back R3_35
+  - first:
+      213: 6492594639525424653
+    second: Dying Sprite Back R3_36
+  - first:
+      213: 1548636119610213470
+    second: Dying Sprite Back R3_37
+  - first:
+      213: -709174070922457643
+    second: Dying Sprite Back R3_38
+  - first:
+      213: -414145342316011875
+    second: Dying Sprite Back R3_39
+  - first:
+      213: 4980096024004822206
+    second: Dying Sprite Back R3_40
+  - first:
+      213: 8004320134145081090
+    second: Dying Sprite Back R3_41
+  - first:
+      213: 2491520235818968688
+    second: Dying Sprite Back R3_42
+  - first:
+      213: 4798930676843934049
+    second: Dying Sprite Back R3_43
+  - first:
+      213: -8444744574028209677
+    second: Dying Sprite Back R3_44
+  - first:
+      213: -8754466294667995048
+    second: Dying Sprite Back R3_45
+  - first:
+      213: 3120291596035397051
+    second: Dying Sprite Back R3_46
+  - first:
+      213: -6660584697130704947
+    second: Dying Sprite Back R3_47
+  - first:
+      213: 1126359347080280173
+    second: Dying Sprite Back R3_48
+  - first:
+      213: -5458618851162817435
+    second: Dying Sprite Back R3_49
+  - first:
+      213: 681674267589890773
+    second: Dying Sprite Back R3_50
+  - first:
+      213: 2261971336590111197
+    second: Dying Sprite Back R3_51
+  - first:
+      213: -1519925257318327809
+    second: Dying Sprite Back R3_52
+  - first:
+      213: -8623749509962424797
+    second: Dying Sprite Back R3_53
+  - first:
+      213: -4989931253200684180
+    second: Dying Sprite Back R3_54
+  - first:
+      213: 430593611030082513
+    second: Dying Sprite Back R3_55
+  - first:
+      213: 3314299227641252566
+    second: Dying Sprite Back R3_56
+  - first:
+      213: 3592689798348055132
+    second: Dying Sprite Back R3_57
+  - first:
+      213: 1068568043349855520
+    second: Dying Sprite Back R3_58
+  - first:
+      213: -357804730532148576
+    second: Dying Sprite Back R3_59
+  - first:
+      213: 1982983440206180712
+    second: Dying Sprite Back R3_60
+  - first:
+      213: 1637767200308017122
+    second: Dying Sprite Back R3_61
+  - first:
+      213: 2052404660799678570
+    second: Dying Sprite Back R3_62
+  - first:
+      213: -4858984146113901506
+    second: Dying Sprite Back R3_63
+  - first:
+      213: 2359578134933157324
+    second: Dying Sprite Back R3_64
+  - first:
+      213: -7737126221135485280
+    second: Dying Sprite Back R3_65
+  - first:
+      213: 6198280517532745464
+    second: Dying Sprite Back R3_66
+  - first:
+      213: -743079242814799785
+    second: Dying Sprite Back R3_67
+  - first:
+      213: 4093381338892069903
+    second: Dying Sprite Back R3_68
+  - first:
+      213: -8291263314805706107
+    second: Dying Sprite Back R3_69
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: tvOS
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Lumin
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Dying Sprite Back R3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59a28db3114479e70800000000000000
+      internalID: 9121834411071384213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dying Sprite Back R3_1
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68dd536fd04c28780800000000000000
+      internalID: -8682161567372550778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dying Sprite Back R3_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d4de6b2a5c863c70800000000000000
+      internalID: 8950495628349068496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dying Sprite Back R3_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2ed9a7dc6e703030800000000000000
+      internalID: 3472414318642454060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dying Sprite Back R3_4
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 452d2b99ede727f10800000000000000
+      internalID: 2266013057047253588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dying Sprite Back R3_5
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 234bd96f020051030800000000000000
+      internalID: 3464675629907948594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dying Sprite Back R3_6
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfac839f3c9797500800000000000000
+      internalID: 394480324978461435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dying Sprite Back R3_7
+      rect:
+        serializedVersion: 2
+        x: 1344
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9db24a5a57e4f5410800000000000000
+      internalID: 1467978270743210969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dying Sprite Back R3_8
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34c6aec9c33997be0800000000000000
+      internalID: -1478989114074567613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 88549ffc79501cd49bfb8a2e786d87b8
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

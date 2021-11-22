@@ -11,9 +11,20 @@ public class enemySpawner : MonoBehaviour
     public float timeBetweenSpawns;
     float timer;
 
+    public float spawnAtOnce;
+
     public float spawnAmount;
     public float spawnHealthBoost;
 
+    public GameObject mapIcon;
+
+    public SpriteRenderer inner;
+
+    float alpha = 0.2f;
+    bool up;
+    Color col = new Color(0.7735849f, 0.08392668f, 0.08392668f);
+
+    public Light lighty;
 
     // Update is called once per frame
     void Update()
@@ -22,23 +33,56 @@ public class enemySpawner : MonoBehaviour
         {
             if (timer <= 0 && spawnAmount > 0)
             {
-                int spawn = Random.Range(0, 100);
-                spawnAmount--;
+                mapIcon.SetActive(true);
                 int i = 0;
-                while (i < spawnChance.Length)
+                while (i < spawnAtOnce)
                 {
-                    if (spawn <= spawnChance[i])
+                    int spawn = Random.Range(0, 100);
+                    spawnAmount--;
+                    if (spawn <= spawnChance[0])
                     {
-                        GameObject newGo = Instantiate(enemies[i], transform.position, Quaternion.identity);
+                        GameObject newGo = Instantiate(enemies[0], transform.position, Quaternion.identity);
                         newGo.GetComponent<enemyInheritance>().health = newGo.GetComponent<enemyInheritance>().health * spawnHealthBoost;
                     }
+                    else if (spawn <= spawnChance[1])
+                    {
+                        GameObject newGo = Instantiate(enemies[1], transform.position, Quaternion.identity);
+                        newGo.GetComponent<enemyInheritance>().health = newGo.GetComponent<enemyInheritance>().health * spawnHealthBoost;
+                    }
+                    else if (spawn <= spawnChance[2])
+                    {
+                        GameObject newGo = Instantiate(enemies[2], transform.position, Quaternion.identity);
+                        newGo.GetComponent<enemyInheritance>().health = newGo.GetComponent<enemyInheritance>().health * spawnHealthBoost;
+                    }
+
+                    timer = timeBetweenSpawns;
                     i++;
                 }
-
-                timer = timeBetweenSpawns;
+                
             }
 
             timer -= Time.deltaTime;
         }
+
+        if (up)
+        {
+            alpha += 0.001f;
+            lighty.range += 0.03f;
+            if (alpha > 0.4f)
+            {
+                up = false;
+            }
+        }
+        else
+        {
+            alpha -= 0.001f;
+            lighty.range -= 0.03f;
+            if (alpha < 0f)
+            {
+                up = true;
+            }
+        }
+        col.a = alpha;
+        inner.color = col;
     }
 }

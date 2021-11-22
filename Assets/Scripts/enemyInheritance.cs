@@ -9,6 +9,7 @@ public class enemyInheritance : MonoBehaviour
     public float health;
     public int currencyWorth;
     public float playerRadius;
+    public float targetRadius;
     public bool inRange;
     public GameObject Player;
     public GameObject Target;
@@ -30,14 +31,25 @@ public class enemyInheritance : MonoBehaviour
     public float freezeTime;
     public float speed;
 
+    public GameObject playerBlood;
+
+    GameObject parent;
+    public GameObject icon;
+    GameObject miniMap;
+
 
     public virtual void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         Target = GameObject.FindGameObjectWithTag("POI");
+        parent = GameObject.FindGameObjectWithTag("mini map icons");
         agent = GetComponent<NavMeshAgent>();
         Vector3 faceDir = new Vector3(10.65f, 7.64f, transform.position.z);
         transform.LookAt(faceDir);
+        miniMap = Instantiate(icon, new Vector3(0, 0, 0), Quaternion.identity);
+        miniMap.transform.SetParent(parent.transform);
+        miniMap.transform.localScale = new Vector3(1,1,1);
+        miniMap.GetComponent<minimapPlayer>().player = gameObject;
     }
 
     public virtual void Update()
@@ -46,7 +58,7 @@ public class enemyInheritance : MonoBehaviour
         {
             float tardist = Vector3.Distance(Target.transform.position, transform.position);
             float dist = Vector3.Distance(Player.transform.position, transform.position);
-            if (tardist < playerRadius)
+            if (tardist < targetRadius)
             {
                 //overides chasing the player to go for the objective
                 if (tardist < 1)

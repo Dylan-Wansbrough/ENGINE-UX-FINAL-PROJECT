@@ -285,8 +285,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  currencyWorth: 5
+  currencyWorth: 6
   playerRadius: 12
+  targetRadius: 12
   inRange: 0
   Player: {fileID: 0}
   Target: {fileID: 0}
@@ -302,6 +303,8 @@ MonoBehaviour:
   DeathTimer: 0
   freezeTime: 0
   speed: 3.5
+  playerBlood: {fileID: 1581903574192864747, guid: 477add5d0095c1b47a2cb1230e3968b4, type: 3}
+  icon: {fileID: 996362118942429706, guid: 0a91fd7fa0f3fd04891527c9f31cbbc1, type: 3}
 --- !u!212 &1663678558923954891
 SpriteRenderer:
   m_ObjectHideFlags: 0

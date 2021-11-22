@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenSetOff: 1
-  damage: 25
+  damage: 20
   timer: 0
   target: {fileID: 0}
   visual: {fileID: 0}

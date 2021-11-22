@@ -11,4 +11,5 @@ public struct spawnvalues
     public int maxAmount;
     public int minTime;
     public int maxTime;
+    public int spawnAmount;
 }

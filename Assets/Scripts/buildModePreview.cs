@@ -16,6 +16,8 @@ public class buildModePreview : MonoBehaviour
     public Material validMat;
 
     public GameObject placing;
+    public GameObject area;
+    public Vector2[] hitArea;
     MeshFilter m_mesh;
     MeshRenderer m_Texture;
 
@@ -43,6 +45,7 @@ public class buildModePreview : MonoBehaviour
                 {
                     if(hit.transform.gameObject.tag != "Ignore") { 
                         placing.transform.position = hit.point;
+                        area.transform.localScale = new Vector3(hitArea[buildNum-1].x, 1, hitArea[buildNum-1].y);
                     }
                     
                     m_mesh.mesh = trap[buildNum - 1];

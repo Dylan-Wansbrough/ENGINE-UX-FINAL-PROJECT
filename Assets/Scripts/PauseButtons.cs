@@ -10,6 +10,11 @@ public class PauseButtons : MonoBehaviour
     {
         SceneManager.LoadScene("main menu");
     }
+
+    public void play()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
     public void quitGame()
     {
         Application.Quit();

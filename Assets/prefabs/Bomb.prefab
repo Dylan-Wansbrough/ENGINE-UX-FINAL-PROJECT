@@ -113,7 +113,7 @@ MonoBehaviour:
   explosionTimer: 0.2
   damage: 75
   explosionRadius: 25
-  explosion: {fileID: 6262158262213247771, guid: 1a05c0baa3d6cc34bb9a16b490202494, type: 3}
+  explosion: {fileID: 2420947741664451806, guid: 2bc2dc9baf10aaf4aab1d4b194b8c99c, type: 3}
 --- !u!54 &802062105755866768
 Rigidbody:
   m_ObjectHideFlags: 0

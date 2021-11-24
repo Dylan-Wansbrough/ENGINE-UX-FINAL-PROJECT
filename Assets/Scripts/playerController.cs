@@ -48,7 +48,12 @@ public class playerController : MonoBehaviour
     public float[] cooldowns;
     public float[] abilityDur;
     public GameObject bomb;
+    public GameObject attackSpeedVis;
     public bool iframe;
+
+    //Audio
+    public AudioSource aud;
+    public AudioClip[] clips;
 
     bool pressed;
     void Start()
@@ -163,12 +168,14 @@ public class playerController : MonoBehaviour
         {
             if(timeTillNextAttack <= 0)
             {
+                float pitch = Random.Range(0.9f, 1.3f);
+                aud.pitch = pitch;
+                aud.PlayOneShot(clips[0]);
                 timeTillNextAttack = timeBetweenAttacks;
                 target.GetComponent<enemyInheritance>().health -= BasicAttackDam;
                 targetDirection();
                 if (target == null)
                 {
-                    Debug.Log("this one?");
                     agent.destination = transform.position;
                 }
             }
@@ -419,6 +426,7 @@ public class playerController : MonoBehaviour
             if (cooldowns[2] <= 0)
             {
                 timeBetweenAttacks = 0.2f;
+                GameObject gam = Instantiate(attackSpeedVis, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 1.32f, gameObject.transform.position.z), Quaternion.Euler(90, 90, 0), gameObject.transform);
                 cooldowns[2] = cooldownDur[2];
             }
         }

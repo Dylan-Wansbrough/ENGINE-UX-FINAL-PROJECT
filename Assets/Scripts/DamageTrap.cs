@@ -24,6 +24,7 @@ public class DamageTrap : trapInheritance
                     }
                     else
                     {
+                        audi.Play();
                         anim.SetTrigger("Stepped on");
                     }
 

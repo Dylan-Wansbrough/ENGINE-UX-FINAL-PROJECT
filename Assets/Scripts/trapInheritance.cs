@@ -9,4 +9,5 @@ public class trapInheritance : MonoBehaviour
     public  float damage;
     public float timer;
     public GameObject target;
+    public AudioSource audi;
 }

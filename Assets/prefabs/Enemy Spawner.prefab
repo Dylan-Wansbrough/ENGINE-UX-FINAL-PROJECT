@@ -151,6 +151,9 @@ MonoBehaviour:
   - {fileID: 3032599093669798972, guid: e6db1da66c7d9e64bbc5805fdd8beec0, type: 3}
   - {fileID: 623730581478322637, guid: 1bea6b82076ddbe47ad7f6d5f0a12b78, type: 3}
   - {fileID: 623730581478322637, guid: 08076f719addeb14a8dcee3c2576fef2, type: 3}
+  - {fileID: 7050505367049879961, guid: 5b88b8d3e06897c47a4231a0c22e99a2, type: 3}
+  - {fileID: 8271501827871542755, guid: 98f78a40dc05d7f4dbbbc0c12b29008e, type: 3}
+  - {fileID: 3961177159353307628, guid: 43fba756cd0e0d74a8d2358b0354ac52, type: 3}
   spawnChance: 460000005a00000064000000
   timeBetweenSpawns: 6
   spawnAtOnce: 0
@@ -158,6 +161,7 @@ MonoBehaviour:
   spawnHealthBoost: 0
   mapIcon: {fileID: 0}
   inner: {fileID: 4414120914024959546}
+  enemyNumType: 0
   lighty: {fileID: 4237379261380408978}
 --- !u!65 &5640749291677418577
 BoxCollider:

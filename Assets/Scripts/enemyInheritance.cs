@@ -37,6 +37,9 @@ public class enemyInheritance : MonoBehaviour
     public GameObject icon;
     GameObject miniMap;
 
+    public AudioSource audi;
+    public AudioClip[] clips;
+
 
     public virtual void Start()
     {
@@ -92,9 +95,15 @@ public class enemyInheritance : MonoBehaviour
             if (health <= 0)
             {
                 EnemyAnims.SetInteger("walkDir", 7);
+                if (!Dead)
+                {
+                    float pit = Random.Range(0.9f, 1.5f);
+                    audi.pitch = pit;
+                    audi.PlayOneShot(clips[1]);
+                }
                 Dead = true;
                 agent.destination = transform.position;
-                if(DeathTimer >= DeathTimeAmount)
+                if (DeathTimer >= DeathTimeAmount)
                 {
                     playerController.trapCurrency += currencyWorth;
                     gameController.totalKilled++;

@@ -27,8 +27,13 @@ public class gameController : MonoBehaviour
 
     float boostHealthAmount;
 
+    public int enemeyType = 1;
 
     public static bool isPaused;
+
+    //audio
+    public AudioSource audi;
+    public AudioClip[] clips;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +65,24 @@ public class gameController : MonoBehaviour
             if (!roundStarted)
             {
                 player.GetComponent<playerController>().health += 10;
+
+                //music related
+                int enemyNum = Random.Range(1, 3); //how many different enemy types
+                if(enemyNum != enemeyType)
+                {
+                    enemeyType = enemyNum;
+                    audi.clip = clips[enemeyType - 1];
+                    audi.Play();
+                    if(enemeyType == 1)
+                    {
+                        audi.volume = 0.1f;
+                    }
+                    else
+                    {
+                        audi.volume = 0.2f;
+                    }
+                }
+
                 if (round < 4)
                 {
                     spawnvalues = waveVals[0];
@@ -131,6 +154,10 @@ public class gameController : MonoBehaviour
                     }
                     previousNum.Add(spawnerNum);
                     int spawnAmount = Random.Range(spawnvalues.minAmount, spawnvalues.maxAmount + 1);
+                    if ((spawnAmount % 2) != 0)
+                    {
+                        spawnAmount++;
+                    }
                     totalSpawned += spawnAmount;
                     spawnPoints[spawnerNum].GetComponent<enemySpawner>().spawnAmount = spawnAmount;
                     int spawnTimer = 0;
@@ -144,14 +171,22 @@ public class gameController : MonoBehaviour
                     {
                         spawnTimer = Random.Range(spawnvalues.minTime, spawnvalues.maxTime + 1);
                     }
+                    spawnPoints[spawnerNum].GetComponent<enemySpawner>().enemyNumType = enemeyType;
 
                     spawnPoints[spawnerNum].GetComponent<enemySpawner>().timeBetweenSpawns = spawnTimer;
 
                     //boost enemy health
                     spawnPoints[spawnerNum].GetComponent<enemySpawner>().spawnHealthBoost = boostHealthAmount;
 
-
-                    spawnPoints[spawnerNum].GetComponent<enemySpawner>().spawnAtOnce = Random.Range(1, spawnvalues.spawnAmount + 1);
+                    if(enemeyType == 2)
+                    {
+                        spawnPoints[spawnerNum].GetComponent<enemySpawner>().spawnAtOnce = Random.Range(2, spawnvalues.spawnAmount + 1);
+                    }
+                    else
+                    {
+                        spawnPoints[spawnerNum].GetComponent<enemySpawner>().spawnAtOnce = Random.Range(1, spawnvalues.spawnAmount + 1);
+                    }
+                    
 
 
                     i++;

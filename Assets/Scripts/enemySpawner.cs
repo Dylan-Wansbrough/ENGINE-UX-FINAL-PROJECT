@@ -20,6 +20,8 @@ public class enemySpawner : MonoBehaviour
 
     public SpriteRenderer inner;
 
+    public int enemyNumType;
+
     float alpha = 0.2f;
     bool up;
     Color col = new Color(0.7735849f, 0.08392668f, 0.08392668f);
@@ -41,17 +43,41 @@ public class enemySpawner : MonoBehaviour
                     spawnAmount--;
                     if (spawn <= spawnChance[0])
                     {
-                        GameObject newGo = Instantiate(enemies[0], transform.position, Quaternion.identity);
+                        GameObject newGo = null;
+                        if (enemyNumType == 1)
+                        {
+                            newGo = Instantiate(enemies[0], transform.position, Quaternion.identity);
+                        }
+                        else
+                        {
+                            newGo = Instantiate(enemies[3], transform.position, Quaternion.identity);
+                        }
                         newGo.GetComponent<enemyInheritance>().health = newGo.GetComponent<enemyInheritance>().health * spawnHealthBoost;
                     }
                     else if (spawn <= spawnChance[1])
                     {
-                        GameObject newGo = Instantiate(enemies[1], transform.position, Quaternion.identity);
+                        GameObject newGo = null;
+                        if (enemyNumType == 1)
+                        {
+                            newGo = Instantiate(enemies[1], transform.position, Quaternion.identity);
+                        }
+                        else
+                        {
+                            newGo = Instantiate(enemies[4], transform.position, Quaternion.identity);
+                        }
                         newGo.GetComponent<enemyInheritance>().health = newGo.GetComponent<enemyInheritance>().health * spawnHealthBoost;
                     }
                     else if (spawn <= spawnChance[2])
                     {
-                        GameObject newGo = Instantiate(enemies[2], transform.position, Quaternion.identity);
+                        GameObject newGo = null;
+                        if (enemyNumType == 1)
+                        {
+                            newGo = Instantiate(enemies[2], transform.position, Quaternion.identity);
+                        }
+                        else
+                        {
+                            newGo = Instantiate(enemies[5], transform.position, Quaternion.identity);
+                        }
                         newGo.GetComponent<enemyInheritance>().health = newGo.GetComponent<enemyInheritance>().health * spawnHealthBoost;
                     }
 

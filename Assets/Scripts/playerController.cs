@@ -117,7 +117,7 @@ public class playerController : MonoBehaviour
                 playerDirection();
                 if (pressed)
                 {
-                    Instantiate(clickLocation, hit.point, Quaternion.identity);
+                    Instantiate(clickLocation, new Vector3(hit.point.x, hit.point.y + 0.02f, hit.point.z), Quaternion.Euler(90, 90, 0));
                     pressed = false;
                 }
             }
@@ -141,7 +141,7 @@ public class playerController : MonoBehaviour
                         target = hit.transform.gameObject;
                     } 
                     buildMode = false;
-                    Instantiate(clickAttack, hit.point, Quaternion.identity);
+                    Instantiate(clickAttack, hit.point, Quaternion.Euler(0, 90, 0));
                 }
                 
 
@@ -371,6 +371,8 @@ public class playerController : MonoBehaviour
 
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100, mask2))
                 {
+                    aud.pitch = 1;
+                    aud.PlayOneShot(clips[1]);
                     agent.speed = 100;
                     agent.acceleration = 100;
                     agent.destination = hit.point;
@@ -425,6 +427,8 @@ public class playerController : MonoBehaviour
         {
             if (cooldowns[2] <= 0)
             {
+                aud.pitch = 1;
+                aud.PlayOneShot(clips[2]);
                 timeBetweenAttacks = 0.2f;
                 GameObject gam = Instantiate(attackSpeedVis, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 1.32f, gameObject.transform.position.z), Quaternion.Euler(90, 90, 0), gameObject.transform);
                 cooldowns[2] = cooldownDur[2];

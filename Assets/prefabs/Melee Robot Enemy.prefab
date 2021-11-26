@@ -309,7 +309,7 @@ MonoBehaviour:
   audi: {fileID: 6706113991380442702}
   clips:
   - {fileID: 0}
-  - {fileID: 8300000, guid: 42633bf7cd49cf24f8c0fdb20775d4bb, type: 3}
+  - {fileID: 8300000, guid: 962bbd2de7d2d8c469db3610a89b6dff, type: 3}
 --- !u!212 &1663678558923954891
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -412,7 +412,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 3
+  MinDistance: 5
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

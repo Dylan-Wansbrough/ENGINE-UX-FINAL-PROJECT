@@ -13,6 +13,7 @@ public class gameUI : MonoBehaviour
 
     public Text POILives;
     public Text GameOver;
+    public Text GameOver2;
 
     public Text round;
     public Text spawners;
@@ -29,6 +30,7 @@ public class gameUI : MonoBehaviour
         TrapCurrency.text = "Trap Materials: " + playerController.trapCurrency;
         POILives.text = "20";
         GameOver.text = "";
+        GameOver2.text = "";
         roundOver.text = "";
         pressNext.text = "";
     }
@@ -67,6 +69,7 @@ public class gameUI : MonoBehaviour
         if (POIController.gameOver)
         {
             GameOver.text = "GAME OVER";
+            GameOver2.text = "Press space to restart";
             if (Input.GetKeyDown("space"))
             {
                 POIController.PortalHealth = 20;

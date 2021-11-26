@@ -108,7 +108,7 @@ MonoBehaviour:
   audi: {fileID: 2552506488096718668}
   clips:
   - {fileID: 8300000, guid: 5eaec783371e68e47821b4e5728cee55, type: 3}
-  - {fileID: 8300000, guid: 42633bf7cd49cf24f8c0fdb20775d4bb, type: 3}
+  - {fileID: 8300000, guid: 962bbd2de7d2d8c469db3610a89b6dff, type: 3}
 --- !u!212 &3865365784663723834
 SpriteRenderer:
   m_ObjectHideFlags: 0

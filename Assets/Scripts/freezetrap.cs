@@ -15,6 +15,7 @@ public class freezetrap : trapInheritance
             {
                 if (timer <= 0)
                 {
+                    audi.Play();
                     Instantiate(visual, transform.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
                     target.GetComponent<enemyInheritance>().freezeTime += freeze;
                     timer = timeBetweenSetOff;

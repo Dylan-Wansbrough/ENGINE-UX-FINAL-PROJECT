@@ -153,7 +153,17 @@ public class gameController : MonoBehaviour
                         }
                     }
                     previousNum.Add(spawnerNum);
-                    int spawnAmount = Random.Range(spawnvalues.minAmount, spawnvalues.maxAmount + 1);
+                    //spawn more zombies
+                    int spawnAmount = 0;
+                    if (enemeyType == 2)
+                    {
+                        spawnAmount = Random.Range(spawnvalues.minAmount, spawnvalues.maxAmount + 10);
+                    }
+                    else
+                    {
+                        spawnAmount = Random.Range(spawnvalues.minAmount, spawnvalues.maxAmount + 1);
+                    }
+                    
                     if ((spawnAmount % 2) != 0)
                     {
                         spawnAmount++;

@@ -30,7 +30,10 @@ public class standardEnemy : enemyInheritance
                     {
                         Player.GetComponent<playerController>().health -= damageAmount;
                         Instantiate(playerBlood, Player.transform.position, Quaternion.identity);
-                        Debug.Log("Attacking Player for " + damageAmount + " damage.");
+                        audi.clip = clips[0];
+                        float pit = Random.Range(0.9f, 1.5f);
+                        audi.pitch = pit;
+                        audi.Play();
                     }
                 }
             }

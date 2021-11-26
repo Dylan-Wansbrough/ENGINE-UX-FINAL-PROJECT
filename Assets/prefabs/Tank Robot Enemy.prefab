@@ -107,7 +107,7 @@ MonoBehaviour:
   icon: {fileID: 996362118942429706, guid: 0a91fd7fa0f3fd04891527c9f31cbbc1, type: 3}
   audi: {fileID: 2552506488096718668}
   clips:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 5eaec783371e68e47821b4e5728cee55, type: 3}
   - {fileID: 8300000, guid: 42633bf7cd49cf24f8c0fdb20775d4bb, type: 3}
 --- !u!212 &3865365784663723834
 SpriteRenderer:
@@ -203,7 +203,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -211,7 +211,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 3
+  MinDistance: 5
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

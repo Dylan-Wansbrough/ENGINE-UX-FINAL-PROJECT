@@ -20,6 +20,7 @@ public class DamageTrap : trapInheritance
                 {
                     if (visualBool)
                     {
+                        audi.Play();
                         Instantiate(visual, transform.position, Quaternion.Euler(new Vector3(-90, 0, 0)));
                     }
                     else

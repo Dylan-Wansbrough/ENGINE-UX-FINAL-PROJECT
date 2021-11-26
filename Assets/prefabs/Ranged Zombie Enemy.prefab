@@ -320,7 +320,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 3
+  MinDistance: 5
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -602,7 +602,7 @@ MonoBehaviour:
   icon: {fileID: 996362118942429706, guid: 0a91fd7fa0f3fd04891527c9f31cbbc1, type: 3}
   audi: {fileID: 6103830658260925514}
   clips:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 317b83479cb47464f8cecfafaa4016f7, type: 3}
   - {fileID: 8300000, guid: 0660729615b92c544ab13391d2f947cd, type: 3}
 --- !u!212 &5749162742389125908
 SpriteRenderer:

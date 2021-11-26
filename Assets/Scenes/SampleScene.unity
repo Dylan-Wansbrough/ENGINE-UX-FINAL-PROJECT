@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 0.53333336}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.69803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -505,7 +505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 0.53333336}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.69803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4836,7 +4836,7 @@ PrefabInstance:
     - target: {fileID: 4414120914024959546, guid: 93b8db2061aea2e4b97f64b0a7e070a0, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0e55735f6069c8f48a762e9554f0a550, type: 2}
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 5640749291677418577, guid: 93b8db2061aea2e4b97f64b0a7e070a0, type: 3}
       propertyPath: m_Center.y
       value: -2.15
@@ -8142,7 +8142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 0.53333336}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.69803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8339,8 +8339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cdf1e45407e08543a3f7a8b0b2dfc7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickLocation: {fileID: 5793100107095521783, guid: efd3120d23251a44cb9310d73504e8fd, type: 3}
-  clickAttack: {fileID: 293164453119022249, guid: e5063cefeed4a154f930be60d5c81693, type: 3}
+  clickLocation: {fileID: 647142094722962753, guid: 502d5f4ac35f3b1429d7e98e1a61c1b8, type: 3}
+  clickAttack: {fileID: 5824161111181571228, guid: 2152e41549218704c83e0e3dfec2a2df, type: 3}
   followCamera: {fileID: 963194225}
   repsawnLocation: {x: -146.4, y: 1.529, z: 1.8}
   target: {fileID: 0}
@@ -8385,6 +8385,9 @@ MonoBehaviour:
   aud: {fileID: 1465160701}
   clips:
   - {fileID: 8300000, guid: 0be16a3e64b85a840a8efaef9cfe9808, type: 3}
+  - {fileID: 8300000, guid: b4fcf24bbcc06974cb8db331974fb692, type: 3}
+  - {fileID: 8300000, guid: aeaf5259becd62741af6f8c4dd47758a, type: 3}
+  - {fileID: 8300000, guid: 51e52759405d2b04481056a02f85ebbd, type: 3}
 --- !u!54 &1034199278
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8814,7 +8817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 0.53333336}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.69803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8937,7 +8940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 0.53333336}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.69803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -12760,7 +12763,7 @@ Transform:
   - {fileID: 1371670787}
   - {fileID: 1572520311}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1550431527 stripped
 Transform:
@@ -14302,7 +14305,7 @@ Transform:
   m_LocalScale: {x: 28.490902, y: 1, z: 34.97141}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1664827759
 GameObject:
@@ -17146,7 +17149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.12156863, g: 0.12156863, b: 0.12156863, a: 0.53333336}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.69803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

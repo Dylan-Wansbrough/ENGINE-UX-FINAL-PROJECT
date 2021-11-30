@@ -13,6 +13,10 @@ public class PauseButtons : MonoBehaviour
 
     public void play()
     {
+        playerController.trapCurrency = 100;
+        gameController.isPaused = false;
+        gameController.totalKilled = 0;
+        Time.timeScale = 1;
         SceneManager.LoadScene("SampleScene");
     }
     public void quitGame()

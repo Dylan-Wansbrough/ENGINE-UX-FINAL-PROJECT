@@ -43,7 +43,8 @@ GameObject:
   - component: {fileID: 9004398584577863599}
   - component: {fileID: 6223267334394323837}
   - component: {fileID: 7015022859087299382}
-  m_Layer: 0
+  - component: {fileID: 2084711873008014500}
+  m_Layer: 10
   m_Name: Room_Corner_R_Up_floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,6 +114,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2084711873008014500
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3762736928682981453}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2837321973937884138, guid: 9570b95f9ec27d34da4c08d07c0ad97c, type: 3}
 --- !u!1 &5263412707403407341
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +187,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 11fbc465ed749e846a3d8f50b16f53cf, type: 2}
+  - {fileID: 2100000, guid: a4201b8253972a34a98e872761c2fce2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
